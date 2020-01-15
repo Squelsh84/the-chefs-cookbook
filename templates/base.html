@@ -8,10 +8,29 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" type="text/css" />
+
+
+  <!-- Customised Title for every page-->
+  {% if title %}
+  <title>The Chefs Cookbook - {{ title }}</title>
+  {% else %}
   <title>The Chefs Cookbook</title>
+  {% endif %}
 </head>
 
 <body>
+
+
+  <!--Main Content -->
+
+
+  {% block content %}
+  {% endblock %}
+
+
+
+
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
