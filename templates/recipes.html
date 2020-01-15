@@ -1,18 +1,8 @@
-<html>
+{% extends 'base.html' %} {% block content %}
 
-<head>
 
-</head>
 
-<body>
-  {% for recipe in recipes%}
-  {{recipe.recipe_name}}
-  {{recipe.recipe_description}}
-  {{recipe.recipe_prep}}
-  {{recipe.recipe_cook}}
-  {{recipe.recipe_serving}}
-  {{recipe.recipe_category}}
-  {% endfor %}
-</body>
 
-</html>
+
+
+{% endblock %}
