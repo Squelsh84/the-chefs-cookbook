@@ -13,62 +13,87 @@
 
     <!-- Recipe Name -->
     <div class="form-group">
-      <label for="recipe_name">Recipe Name</label>
-      <input id="recipe_name" name="recipe_name" type="text" required="required" class="form-control">
+      <label for="recipe_name">
+        <h4>Recipe Name</h4>
+      </label>
+      <input id="recipe_name" name="recipe_name" type="text" placeholder="Name your dish" required="required"
+        class="form-control">
     </div>
 
     <!-- Recipe Description -->
     <div class="form-group">
-      <label for="recipe_description">Short Description</label>
-      <input id="recipe_description" name="recipe_description" type="text" required="required" class="form-control">
+      <label for="recipe_description">
+        <h4>Short Description</h4>
+      </label>
+      <input id="recipe_description" name="recipe_description" type="text" placeholder="Sum up your recipe in a line"
+        required="required" class="form-control">
     </div>
 
     <!-- Preperation Time -->
     <div class="form-group">
-      <label for="recipe_prep">Preperation Time</label>
-      <input id="recipe_prep" name="recipe_prep" type="text" required="required" class="form-control">
+      <label for="recipe_prep">
+        <h4>Preperation Time</h4>
+      </label>
+      <input id="recipe_prep" name="recipe_prep" type="text" placeholder="Time taken to prepare" required="required"
+        class="form-control">
     </div>
 
     <!-- Cooking Time -->
     <div class="form-group">
-      <label for="recipe_cook">Cooking Time</label>
-      <input id="recipe_cook" name="recipe_cook" type="text" required="required" class="form-control">
+      <label for="recipe_cook">
+        <h4>Cooking Time</h4>
+      </label>
+      <input id="recipe_cook" name="recipe_cook" type="text" placeholder="Time taken to cook" required="required"
+        class="form-control">
     </div>
 
     <!-- Serving Size -->
     <div class="form-group">
-      <label for="recipe_serving">Serves</label>
-      <input id="recipe_serving" name="recipe_serving" type="text" required="required" class="form-control">
+      <label for="recipe_serving">
+        <h4>Serves</h4>
+      </label>
+      <input id="recipe_serving" name="recipe_serving" type="text" placeholder="Number of people it serves"
+        required="required" class="form-control">
     </div>
 
     <!-- Recipe Image -->
     <div class="form-group">
-      <label for="recipe_image">Recipe Image</label>
-      <input id="recipe_image" name="recipe_image" type="text" required="required" class="form-control">
+      <label for="recipe_image">
+        <h4>Recipe Image</h4>
+      </label>
+      <input id="recipe_image" name="recipe_image" type="text" placeholder="Add your URL here" required="required"
+        class="form-control">
     </div>
 
     <!-- Recipe Ingredients -->
     <div class="form-group">
-      <label for="recipe_ingredients">Recipe Ingredients</label>
+      <label for="recipe_ingredients">
+        <h4>Recipe Ingredients</h4>
+      </label>
       <input id="recipe_ingredients" name="recipe_ingredients" type="text" placeholder="One Ingredient per line"
         required="required" class="form-control">
     </div>
 
     <!-- Recipe Method -->
     <div class="form-group">
-      <label for="recipe_method">Recipe Instructions</label>
-      <input id="recipe_method" name="recipe_method" type="text" required="required" class="form-control">
+      <label for="recipe_method">
+        <h4>Recipe Instructions</h4>
+      </label>
+      <input id="recipe_method" name="recipe_method" type="text" placeholder="One step per line" required="required"
+        class="form-control">
     </div>
 
 
     <!-- Recipe Category -->
     <div class="form-group row">
       <div class="col-md-6">
-        <label for="recipe_category">Category</label>
+        <label for="recipe_category">
+          <h4>Category</h4>
+        </label>
         <select id="recipe_category" class="form-control">
           <option selected>Choose...</option>
           {% for cat in categories %}
-          <option value="{{cat.category}}">{{cat.recipe_category}}</option>
+          <option value="{{cat.recipe_category}}">{{cat.recipe_category}}</option>
           {% endfor %}
         </select>
       </div>
@@ -76,11 +101,13 @@
 
       <!-- Recipe Difficulty -->
       <div class="col-md-6">
-        <label for="recipe_difficulty">Difficulty</label>
+        <label for="recipe_difficulty">
+          <h4>Difficulty</h4>
+        </label>
         <select id="recipe_dificulty" class="form-control">
           <option selected>Choose...</option>
           {% for dif in difficulty %}
-          <option value="{{dif.difficulty}}">{{dif.recipe_difficulty}}</option>
+          <option value="{{dif.recipe_difficulty}}">{{dif.recipe_difficulty}}</option>
           {% endfor %}
         </select>
       </div>
@@ -88,7 +115,9 @@
 
     <!-- Recipe Author -->
     <div class="form-group">
-      <label for="recipe_author">Recipe Author</label>
+      <label for="recipe_author">
+        <h4>Recipe Author</h4>
+      </label>
       <input id="recipe_author" name="recipe_author" type="text" required="required" class="form-control">
     </div>
 
