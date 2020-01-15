@@ -2,87 +2,90 @@
 
 
 <div class="container">
-  <div class="form-group">
-    <label for="recipe_name">Recipe Name</label>
-    <hr>
-    <input id="recipe_name" name="recipe_name" type="text" required="required" class="form-control">
-  </div>
+  <form action="{{ url_for('insert_recipe') }}">
 
-  <!-- Recipe Description -->
-  <div class="form-group">
-    <label for="recipe_description">Short Description</label>
-    <hr>
-    <input id="recipe_description" name="recipe_description" type="text" required="required" class="form-control">
-  </div>
+    <!-- Recipe Name -->
+    <div class="form-group">
+      <label for="recipe_name">Recipe Name</label>
+      <hr>
+      <input id="recipe_name" name="recipe_name" type="text" required="required" class="form-control">
+    </div>
 
-  <!-- Preperation Time -->
-  <div class="form-group">
-    <label for="recipe_prep">Preperation Time</label>
-    <hr>
-    <input id="recipe_prep" name="recipe_prep" type="text" required="required" class="form-control">
-  </div>
+    <!-- Recipe Description -->
+    <div class="form-group">
+      <label for="recipe_description">Short Description</label>
+      <hr>
+      <input id="recipe_description" name="recipe_description" type="text" required="required" class="form-control">
+    </div>
 
-  <!-- Cooking Time -->
-  <div class="form-group">
-    <label for="recipe_cook">Cooking Time</label>
-    <hr>
-    <input id="recipe_cook" name="recipe_cook" type="text" required="required" class="form-control">
-  </div>
+    <!-- Preperation Time -->
+    <div class="form-group">
+      <label for="recipe_prep">Preperation Time</label>
+      <hr>
+      <input id="recipe_prep" name="recipe_prep" type="text" required="required" class="form-control">
+    </div>
 
-  <!-- Serving Size -->
-  <div class="form-group">
-    <label for="recipe_serving">Serves</label>
-    <hr>
-    <input id="recipe_serving" name="recipe_serving" type="text" required="required" class="form-control">
-  </div>
+    <!-- Cooking Time -->
+    <div class="form-group">
+      <label for="recipe_cook">Cooking Time</label>
+      <hr>
+      <input id="recipe_cook" name="recipe_cook" type="text" required="required" class="form-control">
+    </div>
 
-  <!-- Recipe Image -->
-  <div class="form-group">
-    <label for="recipe_image">Recipe Image</label>
-    <hr>
-    <input id="recipe_image" name="recipe_image" type="text" required="required" class="form-control">
-  </div>
+    <!-- Serving Size -->
+    <div class="form-group">
+      <label for="recipe_serving">Serves</label>
+      <hr>
+      <input id="recipe_serving" name="recipe_serving" type="text" required="required" class="form-control">
+    </div>
 
-  <!-- Recipe Ingredients -->
-  <div class="form-group">
-    <label for="recipe_ingredients">Recipe Ingredients</label>
-    <hr>
-    <input id="recipe_ingredients" name="recipe_ingredients" type="text" required="required" class="form-control">
-  </div>
+    <!-- Recipe Image -->
+    <div class="form-group">
+      <label for="recipe_image">Recipe Image</label>
+      <hr>
+      <input id="recipe_image" name="recipe_image" type="text" required="required" class="form-control">
+    </div>
 
-  <!-- Recipe Method -->
-  <div class="form-group">
-    <label for="recipe_method">Recipe Instructions</label>
-    <hr>
-    <input id="recipe_method" name="recipe_method" type="text" required="required" class="form-control">
-  </div>
+    <!-- Recipe Ingredients -->
+    <div class="form-group">
+      <label for="recipe_ingredients">Recipe Ingredients</label>
+      <hr>
+      <input id="recipe_ingredients" name="recipe_ingredients" type="text" required="required" class="form-control">
+    </div>
 
-  <!-- Recipe Category -->
-  <div class="form-group">
-    <label for="recipe_category">Recipe Category</label>
-    <hr>
-    <input id="recipe_category" name="recipe_category" type="text" required="required" class="form-control">
-  </div>
+    <!-- Recipe Method -->
+    <div class="form-group">
+      <label for="recipe_method">Recipe Instructions</label>
+      <hr>
+      <input id="recipe_method" name="recipe_method" type="text" required="required" class="form-control">
+    </div>
 
-  <!-- Recipe Difficulty -->
-  <div class="form-group">
-    <label for="recipe_difficulty">Recipe Difficulty</label>
-    <hr>
-    <input id="recipe_difficulty" name="recipe_difficulty" type="text" required="required" class="form-control">
-  </div>
+    <!-- Recipe Category -->
+    <div class="form-group">
+      <label for="recipe_category">Recipe Category</label>
+      <hr>
+      <input id="recipe_category" name="recipe_category" type="text" required="required" class="form-control">
+    </div>
 
-  <!-- Recipe Author -->
-  <div class="form-group">
-    <label for="recipe_author">Recipe Author</label>
-    <hr>
-    <input id="recipe_author" name="recipe_author" type="text" required="required" class="form-control">
-  </div>
+    <!-- Recipe Difficulty -->
+    <div class="form-group">
+      <label for="recipe_difficulty">Recipe Difficulty</label>
+      <hr>
+      <input id="recipe_difficulty" name="recipe_difficulty" type="text" required="required" class="form-control">
+    </div>
 
-  <!-- Add Recipe Button -->
-  <div class="form-group text-center">
-    <button name="submit" type="submit" class="btn btn-success">Add Recipe</button>
-  </div>
+    <!-- Recipe Author -->
+    <div class="form-group">
+      <label for="recipe_author">Recipe Author</label>
+      <hr>
+      <input id="recipe_author" name="recipe_author" type="text" required="required" class="form-control">
+    </div>
 
+    <!-- Add Recipe Button -->
+    <div class="form-group text-center">
+      <button name="submit" type="submit" class="btn btn-success">Add Recipe</button>
+    </div>
+  </form>
 </div>
 
 
