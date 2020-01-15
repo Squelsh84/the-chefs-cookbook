@@ -1,8 +1,44 @@
 {% extends 'base.html' %} {% block content %}
 
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="text-center">Recipes</h1>
+  </div>
+</div>
 
+<!-- Recipe cards-->
 
-
-
-
-{% endblock %}
+<div class="container">
+  <div class="row">
+    {% for recipe in recipes %}
+    <div class="col-lg-4 col-sm-6 col-12">
+      <div class="recipe-layout h-100">
+        <figure class="item-figure text-center">
+          <a href="{{ url_for('recipes', recipe_id=recipe._id) }}">
+            <img src="{{recipe.recipe_image}}" alt="image of recipe">
+          </a>
+        </figure>
+        <div class="recipe-content text-center">
+          <span class="category">{{recipe.recipe_category}}
+          </span>
+          <h3 class="recipe-title ">
+            <a href="{{ url_for('recipes', recipe_id=recipe._id) }}">{{recipe.recipe_name}}</a>
+          </h3>
+          <p>
+            "{{recipe.recipe_description}}"
+          </p>
+          <ul class="info">
+            <li>
+              <i class="fas fa-clock">{{recipe.recipe_time}}</i>
+            </li>
+            <li>
+              <i class="fas fa-user">{{recipe.recipe_author}}</i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}
