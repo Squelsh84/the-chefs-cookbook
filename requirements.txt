@@ -8,7 +8,7 @@ cffi==1.13.2
 click==6.7
 colorama==0.4.1
 dnspython==1.16.0
-Flask==0.12.4
+Flask==1.0
 Flask-Bcrypt==0.7.1
 Flask-Login==0.4.1
 Flask-PyMongo==2.3.0
