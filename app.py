@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
@@ -28,7 +28,9 @@ def add_recipe():
 @app.route('/insert_recipe', methods=["POST"])
 def insert_recipe():
     recipes = mongo.db.recipes
-    return render_template('recipes.html')
+    recipes.insert_one()
+    flash('You have added a new recipe successfully!')
+    return redirect(url_for('index'))
 
 
 @app.route('/get_recipes')
