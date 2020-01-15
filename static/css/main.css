@@ -1,3 +1,42 @@
+
+
+
+
+
+
+
+
+/*--- Index ---*/
+
 .carousel-images {
   padding-top: 10px;
+  
+}
+
+
+
+
+
+/*--- Recipes ---*/
+
+.recipe-layout {
+  box-sizing: border-box;
+}
+
+.info li {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+i {
+  color: darkred;
+  font-size: 15px;
 }
