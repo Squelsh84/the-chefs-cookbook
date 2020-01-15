@@ -28,13 +28,8 @@ def get_recipes():
 # Show Individual Recipe
 @app.route('/viewrecipe/<recipe_id>')
 def recipes(recipe_id):
-     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template('viewrecipe.html', recipes=recipe, title=recipe['recipe_name'])
-
-
-
-
-
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template('viewrecipe.html', title=recipe['recipe_name'], recipe=recipe)
 
 
 # Add Recipe
@@ -49,12 +44,6 @@ def insert_recipe():
     recipes.insert_one(request.form.to_dict())
     flash('You have added a new recipe successfully!')
     return redirect(url_for('index'))
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
