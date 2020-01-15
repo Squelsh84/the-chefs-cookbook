@@ -5,7 +5,6 @@
 
 
 
-
 /*--- Index ---*/
 
 .carousel-images {
@@ -37,6 +36,23 @@ img {
 }
 
 i {
-  color: darkred;
+  color: rgb(202, 29, 29);
   font-size: 15px;
+}
+
+
+.jumbotron {
+  background-color: rgb(202, 29, 29);
+  opacity: .5;
+  box-shadow: 1rem;
+}
+
+
+
+/*-- Add recipe --*/
+
+
+.container-add {
+  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  padding: 1rem;
 }
