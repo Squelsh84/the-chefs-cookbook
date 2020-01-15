@@ -1,0 +1,81 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container carousel-images">
+  <div class="row">
+    <div class="col-lg-8">
+
+      <!--Carousel Wrapper-->
+      <div id="carousel-food" class="carousel slide carousel-fade" data-ride="carousel">
+
+        <!--Indicators-->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-food" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-food" data-slide-to="1"></li>
+          <li data-target="#carousel-food" data-slide-to="2"></li>
+        </ol>
+        <!--/.Indicators-->
+
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active">
+            <div class="view">
+              <img class="d-block w-100 " src="{{ url_for('static', filename='img/spices.jpg') }}"
+                alt="First slide with spices image">
+              <div class="mask rgba-black-slight"></div>
+            </div>
+            <div class="carousel-caption">
+              <h3 class="h3-responsive">"No one is born a great cook, one learns by doing."</h3>
+              <p>Julia Child</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <!--Mask color-->
+            <div class="view">
+              <img class="d-block w-100" src="{{ url_for('static', filename='img/pasta.jpg') }}"
+                alt="Second slide with pasta image">
+              <div class="mask rgba-black-slight"></div>
+            </div>
+            <div class="carousel-caption">
+              <h3 class="h3-responsive">"Good food is very often, even most often, simple food."</h3>
+              <p>Anthony Bourdain</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <!--Mask color-->
+            <div class="view">
+              <img class="d-block w-100" src="{{ url_for('static', filename='img/bread.jpg') }}"
+                alt="Third slide with food on a table image">
+              <div class="mask rgba-black-slight"></div>
+            </div>
+            <div class="carousel-caption">
+              <h3 class="h3-responsive">"Clean plates don't lie."</h3>
+              <p>Dan Barber</p>
+            </div>
+          </div>
+        </div>
+        <!--/.Slides-->
+
+        <!--Controls-->
+        <a class="carousel-control-prev" href="#carousel-food" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-food" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+        <!--/.Controls-->
+
+      </div>
+
+      <!--/.Carousel Wrapper-->
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
