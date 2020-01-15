@@ -19,6 +19,24 @@ def index():
     return render_template('index.html', title='home')
 
 
+# View All Recipes
+@app.route('/get_recipes')
+def get_recipes():
+    return render_template('recipes.html', recipes=mongo.db.recipes.find())
+
+
+# Show Individual Recipe
+@app.route('/viewrecipe/<recipe_id>')
+def recipes(recipe_id):
+     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template('viewrecipe.html', recipes=recipe, title=recipe['recipe_name'])
+
+
+
+
+
+
+
 # Add Recipe
 @app.route('/add_recipe')
 def add_recipe():
@@ -33,9 +51,10 @@ def insert_recipe():
     return redirect(url_for('index'))
 
 
-@app.route('/get_recipes')
-def get_recipes():
-    return render_template('recipes.html', recipes=mongo.db.recipes.find())
+
+
+
+
 
 
 if __name__ == '__main__':
