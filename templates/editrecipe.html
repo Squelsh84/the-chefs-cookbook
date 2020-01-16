@@ -1,0 +1,157 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="text-center">Edit Recipe</h1>
+  </div>
+</div>
+
+
+
+<div class="container container-add">
+  <form action="{{ url_for('insert_recipe') }}" method="POST">
+
+    <!-- Recipe Name -->
+    <div class="form-group">
+      <label for="recipe_name">
+        <h4>Recipe Name</h4>
+      </label>
+      <input id="recipe_name" name="recipe_name" type="text" placeholder="Name your dish" required="required"
+        class="form-control">
+    </div>
+
+    <!-- Recipe Description -->
+    <div class="form-group">
+      <label for="recipe_description">
+        <h4>Short Description</h4>
+      </label>
+      <input id="recipe_description" name="recipe_description" type="text" placeholder="Sum up your recipe in a line"
+        required="required" class="form-control">
+    </div>
+
+    <!-- Preperation Time -->
+    <div class="form-group">
+      <label for="recipe_prep">
+        <h4>Preperation Time</h4>
+      </label>
+      <input id="recipe_prep" name="recipe_prep" type="text" placeholder="Time taken to prepare" required="required"
+        class="form-control">
+    </div>
+
+    <!-- Cooking Time -->
+    <div class="form-group">
+      <label for="recipe_cook">
+        <h4>Cooking Time</h4>
+      </label>
+      <input id="recipe_cook" name="recipe_cook" type="text" placeholder="Time taken to cook" required="required"
+        class="form-control">
+    </div>
+
+    <!-- Serving Size -->
+    <div class="form-group">
+      <label for="recipe_serving">
+        <h4>Serves</h4>
+      </label>
+      <input id="recipe_serving" name="recipe_serving" type="text" placeholder="Number of people it serves"
+        required="required" class="form-control">
+    </div>
+
+    <!-- Recipe Image -->
+    <div class="form-group">
+      <label for="recipe_image">
+        <h4>Recipe Image</h4>
+      </label>
+      <input id="recipe_image" name="recipe_image" type="text" placeholder="Add your URL here" required="required"
+        class="form-control">
+    </div>
+
+    <!-- Recipe Ingredients -->
+    <div class="form-group">
+      <label for="recipe_ingredients">
+        <h4>Recipe Ingredients</h4>
+      </label>
+      <div class="new-ingredient ingredient">
+        <textarea id="recipe_ingredients" name="recipe_ingredients" cols="40" rows="1" class="form-control"
+          required="required" aria-describedby="textareaHelpBlock" placeholder="One Ingredient per line"></textarea>
+      </div>
+
+    </div>
+
+    <!-- Add Next Ingredient-->
+    <button type="button" class="add-ingredient btn btn-success">
+      Add
+    </button>
+
+    <!-- Remove Last Ingredient -->
+    <button type="button" class="remove-ingredient btn btn-danger">
+      Remove
+    </button>
+
+    <!-- Recipe Method -->
+    <div class="form-group">
+      <label for="recipe_method">
+        <h4>Recipe Instructions</h4>
+      </label>
+      <div class="new-method method">
+        <textarea id="recipe_method" name="recipe_method" cols="40" rows="3" class="form-control" required="required"
+          aria-describedby="textareaHelpBlock" placeholder="One step per line"></textarea>
+      </div>
+    </div>
+    <!-- Add Next Step -->
+    <button type="button" class="add-method btn btn-success">
+      Add
+    </button>
+
+    <!-- Remove Last Step -->
+    <button type="button" class="remove-method btn btn-danger ">
+      Remove
+    </button>
+
+
+    <!-- Recipe Category -->
+    <div class="form-group row">
+      <div class="col-md-6">
+        <label for="recipe_category">
+          <h4>Category</h4>
+        </label>
+        <select id="recipe_category" class="form-control">
+          <option selected>Choose...</option>
+          {% for cat in categories %}
+          <option value="{{cat.recipe_category}}">{{cat.recipe_category}}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+
+      <!-- Recipe Difficulty -->
+      <div class="col-md-6">
+        <label for="recipe_difficulty">
+          <h4>Difficulty</h4>
+        </label>
+        <select id="recipe_dificulty" class="form-control">
+          <option selected>Choose...</option>
+          {% for dif in difficulty %}
+          <option value="{{dif.recipe_difficulty}}">{{dif.recipe_difficulty}}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <!-- Recipe Author -->
+    <div class="form-group">
+      <label for="recipe_author">
+        <h4>Recipe Author</h4>
+      </label>
+      <input id="recipe_author" name="recipe_author" type="text" required="required" class="form-control">
+    </div>
+
+    <!-- Add Recipe Button -->
+    <div class="form-group text-center">
+      <button name="submit" type="submit" class="btn btn-success">Add Recipe</button>
+    </div>
+  </form>
+</div>
+
+
+
+{% endblock %}
