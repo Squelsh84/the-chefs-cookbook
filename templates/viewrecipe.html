@@ -7,9 +7,6 @@
 </div>
 
 
-
-
-
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
@@ -18,19 +15,81 @@
         <h2 class="rpe-name">{{ recipe.recipe_name }}</h2>
       </div>
       <div class="row">
-        <li class="rcp-auth"><i class="fas fa-user"></i>by <span>{{ recipe.recipe_author }}</span></a></li>
+        <li class="rcp-auth text-center"><i class="fas fa-user"></i> by <span>{{ recipe.recipe_author }}</span></a></li>
       </div>
-      <div class="rcp-img text-center">
-        <img src="{{ recipe.recipe_image }}" alt="food">
+      <div class="row">
+        <div class="rcp-img text-center col-md-5">
+          <img src="{{ recipe.recipe_image }}" alt="food">
+        </div>
+        <div class="item-feature recipe-info">
+          <ul class="list-group list-group-info list-group-horizontal-md text-center">
+            <li class="list-group-item">
+              <h6>PREP:</h6><i class="fas fa-clock"></i> {{ recipe.recipe_prep }} Mins
+            </li>
+            <li class="list-group-item">
+              <h6>COOK:</h6><i class="fas fa-utensils"></i> {{ recipe.recipe_cook }} Mins
+            </li>
+            <li class="list-group-item">
+              <h6>SERVES</h6><i class="fas fa-users"></i> {{ recipe.recipe_serving }} People
+            </li>
+            <li class="list-group-item">
+              <h6>DIFFICULTY</h6><i class="fas fa-mitten"></i> {{ recipe.recipe_difficulty }}
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
+      <div class="container">
+        <div class="ingredients">
+          <div class="row">
+            <div class="col-lg-5">
+              <div class="card" style="margin:50px 0">
+                <h3 class="item-title text-center">
+                  <i class="fas fa-list-ul"></i>Ingredients
+                </h3>
+                <div>
+
+                  <ul class="list-group list-group-flush">
+                    {% for ingredient in recipe.recipe_ingredients %}
+                    <li class="list-group-item">
+                      {{ ingredient }}
+                      <label class="checkbox">
+                        <input type="checkbox" />
+                        <span class="success"></span>
+                      </label>
+
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-lg-7">
+              <div class="card" style="margin:50px 0">
+                <h3 class="item-title text-center">
+                  <i class="fas fa-list-ul"></i>Cooking Procedure
+                </h3>
+                <div>
+
+                  <ol class="list-group list-group-flush">
+                    {% for method in recipe.recipe_method %}
+                    <li class="list-group-item">
+                      {{ method }}
+
+
+                    </li>
+                    {% endfor %}
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 
 
 
-
-
-{% endblock %}
+      {% endblock %}
