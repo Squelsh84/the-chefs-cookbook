@@ -12,6 +12,12 @@
   
 }
 
+.widget-about figure.author-figure img {
+  border-radius: 50%;
+}
+
+
+
 
 
 
@@ -42,8 +48,8 @@ i {
 
 
 .jumbotron {
-  background-color: rgb(202, 29, 29);
-  opacity: .5;
+  background-color: rgba(255, 74, 82, 0.97);
+  opacity: .9;
   box-shadow: 1rem;
 }
 
@@ -56,3 +62,6 @@ i {
   box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
   padding: 1rem;
 }
+
+
+
