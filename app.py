@@ -66,36 +66,36 @@ def insert_recipe():
 # Edit and Update Recipe
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
-      recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
-    categories = mongo.db.categories.find()
-    difficulties = mongo.db.difficulties.find()
-    return render_template('editrecipe.html', 
-                           title='Edit Recipe', 
-                           recipe=recipe, 
-                           categories=categories, 
+    recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
+    categories = mongo.db.categories.find_()
+    difficulty = mongo.db.difficulties.find()
+    return render_template('editrecipe.html',
+                           title='Edit Recipe',
+                           recipe=recipe,
+                           categories=categories,
                            difficulty=difficulty)
-
 
 
 # Update Recipe
 @app.route('/update_recipe/<recipe_id>')
 def update_recipe(recipe_id):
-    recipe= mongo.db.Recipes
-    recipe.update({'recipe_id': ObjectId(recipe_id), 
-    'recipe_name': request.form.get('recipe_name'),
-        'recipe_description': request.form.get('recipe_description'),
-        'recipe_prep': request.form.get('recipe_prep'),
-        'recipe_cook': request.form.get('recipe_cook'),
-        'recipe_serving': request.form.get('recipe_serving'),
-        'recipe_image': request.form.get('recipe_image'),
-        'recipe_ingredients': request.form.getlist('recipe_ingredients'),
-        'recipe_method': request.form.getlist('recipe_method'),
-        'recipe_category': request.form.get('recipe_category'),
-        'recipe_difficulty': request.form.get('recipe_difficulty'),
-        'recipe_author': request.form.get('recipe_author')
-    })
+    recipe = mongo.db.recipes
+    recipe.update({'recipe_id': ObjectId(recipe_id),
+                   'recipe_name': request.form.get('recipe_name'),
+                   'recipe_description': request.form.get('recipe_description'),
+                   'recipe_prep': request.form.get('recipe_prep'),
+                   'recipe_cook': request.form.get('recipe_cook'),
+                   'recipe_serving': request.form.get('recipe_serving'),
+                   'recipe_image': request.form.get('recipe_image'),
+                   'recipe_ingredients': request.form.getlist('recipe_ingredients'),
+                   'recipe_method': request.form.getlist('recipe_method'),
+                   'recipe_category': request.form.get('recipe_category'),
+                   'recipe_difficulty': request.form.get('recipe_difficulty'),
+                   'recipe_author': request.form.get('recipe_author')
+                   })
     flash('Your recipe has updated successfully')
-    return redirect('viewrecipe', recipe_id=recipe_id)
+    return redirect(url_for('viewrecipe', recipe_id=recipe_id))
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
