@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from datetime import datetime
 
 
 app = Flask(__name__)
@@ -39,8 +40,10 @@ def add_recipe():
                            difficulty=mongo.db.difficulty.find())
 
 
+# Insert Recipe
 @app.route('/insert_recipe', methods=["POST"])
 def insert_recipe():
+    today = datetime.now().strftime("%m-%d-%Y")
     recipes = mongo.db.recipes
     new_recipe = {
         "recipe_name": request.form.get("recipe_name"),
@@ -58,6 +61,19 @@ def insert_recipe():
     recipes.insert_one(new_recipe)
     flash('You have added a new recipe successfully!', 'success')
     return redirect(url_for('index'))
+
+
+# Edit and Update Recipe
+@app.route('/edit_recipe/<recipe_id>')
+def edit_recipe(recipe_id):
+      recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    categories = mongo.db.categories.find()
+    difficulties = mongo.db.difficulties.find()
+    return render_template('editrecipe.html', 
+                           title='Edit Recipe', 
+                           recipe=recipe, 
+                           categories=categories, 
+                           difficulty=difficulty)
 
 
 if __name__ == '__main__':
