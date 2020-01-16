@@ -70,8 +70,10 @@
       <label for="recipe_ingredients">
         <h4>Recipe Ingredients</h4>
       </label>
-      <input id="recipe_ingredients" name="recipe_ingredients" type="text" placeholder="One Ingredient per line"
-        required="required" class="form-control">
+      <div class="new-ingredient ingredient">
+        <textarea id="recipe_ingredients" name="recipe_ingredients" cols="40" rows="1" class="form-control"
+          required="required" aria-describedby="textareaHelpBlock" placeholder="One Ingredient per line"></textarea>
+      </div>
 
     </div>
 
@@ -90,8 +92,10 @@
       <label for="recipe_method">
         <h4>Recipe Instructions</h4>
       </label>
-      <input id="recipe_method" name="recipe_method" type="text" placeholder="One step per line" required="required"
-        class="form-control">
+      <div class="new-ingredient ingredient">
+        <textarea id="recipe_method" name="recipe_method" cols="40" rows="3" class="form-control"
+          required="required" aria-describedby="textareaHelpBlock" placeholder="One step per line"></textarea>
+      </div>
     </div>
     <!-- Add Next Step -->
     <button type="button" class="add-method btn btn-success">
