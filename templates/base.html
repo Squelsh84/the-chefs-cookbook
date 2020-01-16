@@ -38,7 +38,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Recipes</a>
+            <a class="nav-link" href="{{ url_for('get_recipes') }}">Recipes</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('add_recipe') }}">Add Recipe</a>
@@ -52,13 +52,29 @@
   </nav>
 
 
+  <!-- Display the flash message -->
+  <div class="container" style="min-height:100% width:80%">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+          aria-hidden="true">×</span></button>
+      <h5>{{message}}</h5>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
 
 
-  <!--Main Content -->
+
+  <!-- Main Content -->
 
 
   {% block content %}
   {% endblock %}
+
 
 
   <footer class="bg-dark">
