@@ -1,9 +1,31 @@
 {% extends 'base.html' %} {% block content %}
 
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="text-center">Recipe</h1>
+  </div>
+</div>
 
 
 
 
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="view-recipe text-center">
+        <div class="rpe-cat">{{ recipe.recipe_category }}</div>
+        <h2 class="rpe-name">{{ recipe.recipe_name }}</h2>
+      </div>
+      <div class="row">
+        <li class="rcp-auth"><i class="fas fa-user"></i>by <span>{{ recipe.recipe_author }}</span></a></li>
+      </div>
+      <div class="rcp-img text-center">
+        <img src="{{ recipe.recipe_image }}" alt="food">
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
