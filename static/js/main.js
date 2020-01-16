@@ -3,7 +3,7 @@ var directionCount = $(".ingredient").length;
 /* add new cloned item */
 $(".add-ingredient").on("click", function () {
   /* clone and remove existing values */
-  $(".new-ingredient:first").clone().insertBefore(".add-ingredient").find("input[type='text'], select, input").val("");
+  $(".new-ingredient:first").clone().insertBefore(".add-ingredient").find("input[type='text'], select, textarea").val("");
   /* increase counter so original direction is never removed */
   directionCount += 1;
 });
