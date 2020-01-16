@@ -51,8 +51,8 @@ def insert_recipe():
         "recipe_image": request.form.get("recipe_image"),
         "recipe_ingredients": request.form.getlist("recipe_ingredients"),
         "recipe_method": request.form.getlist("recipe_method"),
-        "recipe_category": request.form.getlist("recipe_category"),
-        "recipe_difficulty": request.form.getlist("recipe_difficulty"),
+        "recipe_category": request.form.get("recipe_category"),
+        "recipe_difficulty": request.form.get("recipe_difficulty"),
         "recipe_author": request.form.get("recipe_author")
     }
     recipes.insert_one(new_recipe)
