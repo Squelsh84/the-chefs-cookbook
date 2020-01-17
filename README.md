@@ -1,25 +1,25 @@
 
 # [The Chefs Cookbook](https://the-chefs-diary.herokuapp.com/index)
 
-# UX
+## UX
 
 The Chefs Cookbook is a website created to help people like me to keep all their recipes in one place and also maybe find some new ones shared by others. I lived with chefs for many years and most of my recipes were written on pieces of paper or on the  back of envelopes and have disapeared over time. So after loosing so many recipes, I decided enough was enough and created the chefs cookbook for my chef friends to share all thier recipes with me again.
 
-## User Stories
+### User Stories
 
-### Find A Recipe
+#### User Story 1 - Find A Recipe
 
 I'm tired of the same old food and want to try something different. I want to see new recipes with different skill levels.
 
-### Add A New Recipe
+#### User Story 2 - Add A New Recipe
 
 I've found a great recipe in a magazine but dont want to buy it just for the recipe.
 
-### Share A Recipe
+#### User Story 3 - Share A Recipe
 
 My friend ask me for the recipe for the dish I cooked the other night at our dinner party.
 
-### Print The Recipe
+#### User Story 4 - Print The Recipe
 
 I'm heading into town and dont have any battery left in my phone. I want to print it out to bring with me for the ingredients.
 
