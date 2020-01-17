@@ -3,12 +3,25 @@
 
 # UX
 
-The Chefs Cookbook is a website created to help people like me to keep all their recipes in one place and also maybe find some new ones shared by others. I lived with chefs for many years and most of my recipes were written on pieces of paper or on the  back of envelopes and have disapeared over time. So after loosing so many recipes, I decideded enough was enough and created the chefs cookbook for my chef friends to share all thier recipes with me again.
-
+The Chefs Cookbook is a website created to help people like me to keep all their recipes in one place and also maybe find some new ones shared by others. I lived with chefs for many years and most of my recipes were written on pieces of paper or on the  back of envelopes and have disapeared over time. So after loosing so many recipes, I decided enough was enough and created the chefs cookbook for my chef friends to share all thier recipes with me again.
 
 ## User Stories
 
+### Find A Recipe
 
+I'm tired of the same old food and want to try something different. I want to see new recipes with different skill levels.
+
+### Add A New Recipe
+
+I've found a great recipe in a magazine but dont want to buy it just for the recipe.
+
+### Share A Recipe
+
+My friend ask me for the recipe for the dish I cooked the other night at our dinner party.
+
+### Print The Recipe
+
+I'm heading into town and dont have any battery left in my phone. I want to print it out to bring with me for the ingredients.
 
 ## Design
 
@@ -22,11 +35,24 @@ The Chefs Cookbook is a website created to help people like me to keep all their
 
 
 
-### Preparation
+# Wireframe
+
+I decided to use balsamiq to create my mock-ups because it is easy to use and gave me a real visual of what I wanted to implement. These can be found [here]() 
 
 
 # Pages
 
+## Home Page
+
+## Login User Page
+
+## Register New Accont Page
+
+## View Recipes Page
+
+## Add Recipe Page
+
+## Edit Recipe Page
 
 
 ## Future Features
@@ -35,7 +61,47 @@ The Chefs Cookbook is a website created to help people like me to keep all their
 
 # Database Design
 
+Please find below the structure I used for my database using MongoDB.
 
+**Collection name:** `users`
+
+```{
+    "_id": <ObjectId>,
+    "user_name": <string>,
+    "email": <string>,
+    "password": <string>
+}
+```
+
+**Collection name:** `categories`
+
+```{
+    "_id": <ObjectId>,
+    "category": <string>
+}
+```
+
+**Collection name:** `difficulty`
+
+```{
+    "_id": <ObjectId>,
+    "difficulty": <string>
+}
+```
+
+**Collection name:** `recipes`
+
+```{
+    "_id": <ObjectId>,
+    "recipe_name": <String>,
+    "recipe_description": <String>,
+    "recipe_time": <String>,
+    "recipe_image": <String>,
+    "Recipe_ingredients": <Array>,
+    "Recipe_method": <Array>,
+    "recipe_author": <String>,
+}
+```
 
 # Technologies & Programmes Used
 
@@ -91,7 +157,7 @@ The following instructions to clone and deploy assume the user has:
 
 The following instructions were taken from [GitHib Help]( https://help.github.com/en/articles/cloning-a-repository).
 
-1. Open the [The Chefs Cookbook]() repository.
+1. Open the [The Chefs Cookbook](https://github.com/Squelsh84/the-cookbook) repository.
 2. Click the **clone or download** button.
 3. In the **clone with HTTPs** pop-up, click the **copy icon**.
 4. Open **git bash**.
