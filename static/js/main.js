@@ -45,3 +45,6 @@ $(".remove-method").on("click", function () {
 function myFunction() {
   window.print();
 }
+
+
+

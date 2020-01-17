@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="container carousel-images">
+<div class="container-fluid carousel-images">
   <div class="row">
     <div class="col-lg-8">
 
@@ -87,43 +87,45 @@
         </div>
       </div>
     </div>
-    <div class="container">
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="recipe-cat">
+        <h3>Recipe Categories</h3>
+        <hr>
+      </div>
       <div class="row">
-        <div class="col-md-12">
-          <div class="recipe-cat">
-            <h3>Recipe Categories</h3>
-            <hr>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <figure class="item-figure text-center">
-                <a href="#">
-                  <img src="{{ url_for('static', filename='img/bread.jpg') }}" alt="image of category">
-                </a>
-              </figure>
-            </div>
-            <div class="col-md-4">
-              <figure class="item-figure text-center">
-                <a href="#">
-                  <img src="{{ url_for('static', filename='img/bread.jpg') }}" alt="image of category">
-                </a>
-              </figure>
-            </div>
-            <div class="col-md-4">
-              <figure class="item-figure text-center">
-                <a href="#">
-                  <img src="{{ url_for('static', filename='img/bread.jpg') }}" alt="image of category">
-                </a>
-              </figure>
-            </div>
-          </div>
+        <div class="col-md-4">
+          <figure class="item-figure text-center">
+            <a href="#">
+              <img src="{{ url_for('static', filename='img/bread.jpg') }}" alt="image of category">
+            </a>
+          </figure>
+        </div>
+        <div class="col-md-4">
+          <figure class="item-figure text-center">
+            <a href="#">
+              <img src="{{ url_for('static', filename='img/bread.jpg') }}" alt="image of category">
+            </a>
+          </figure>
+        </div>
+        <div class="col-md-4">
+          <figure class="item-figure text-center">
+            <a href="#">
+              <img src="{{ url_for('static', filename='img/bread.jpg') }}" alt="image of category">
+            </a>
+          </figure>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
 
 
 
 
 
-    {% endblock %}
+{% endblock %}

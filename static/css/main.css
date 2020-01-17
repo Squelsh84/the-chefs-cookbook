@@ -17,7 +17,7 @@ body {
 }
 
 .widget-about figure.author-figure img {
-  border-radius: 50%;
+  border-radius: 45%;
 }
 
 
@@ -39,7 +39,6 @@ body {
 }
 
 
-
 img {
   max-width: 100%;
   height: auto;
@@ -52,7 +51,6 @@ i {
 
 
 .jumbotron {
-  background-color: rgba(255, 74, 82, 0.97);
   opacity: .9;
   box-shadow: 1rem;
 }
@@ -67,7 +65,9 @@ i {
   padding: 1rem;
 }
 
-
+.jumbotron-add {
+  background-image: url('../img/bannerfood.jpg');
+}
 
 /*--- View Recipe ---*/
 
