@@ -70,24 +70,60 @@
 
       <!--/.Carousel Wrapper-->
     </div>
-  
-  <div class="col-lg-4 sidebar-widget-area sidebar-break-md">
-    <div class="widget">
-        
+
+    <div class="col-lg-4 sidebar-widget-area sidebar-break-md">
+      <div class="widget">
+
         <div class="widget-about">
-            <figure class="author-figure"><img src="{{ url_for('static', filename='img/profile.png') }}"" alt="about"></figure>
-            <div class="section-heading heading-dark">
-              <h3 class="item-heading text-center">About Us</h3>
+          <figure class="author-figure"><img src="{{ url_for('static', filename='img/profile.png') }}"" alt=" about">
+          </figure>
+          <div class="section-heading heading-dark">
+            <h3 class="item-heading text-center">About Us</h3>
           </div>
-            <p>Fusce mauris auctor ollicituder teary iner hendrerit risusey aeenean rauctor pibus
-                doloer.</p>
+          <p class="justify-content-center">The Chefs Cookbook is a place to keep all those tasty recipes you've
+            discovered over the years. Not only do
+            you have a place to store them but also a place to discover many more as other aspiring chefs share their
+            recipes too.</p>
         </div>
+      </div>
     </div>
-</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="recipe-cat">
+            <h3>Recipe Categories</h3>
+            <hr>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <figure class="item-figure text-center">
+                <a href="#">
+                  <img src="{{ url_for('static', filename='img/bread.jpg') }}" alt="image of category">
+                </a>
+              </figure>
+            </div>
+            <div class="col-md-4">
+              <figure class="item-figure text-center">
+                <a href="#">
+                  <img src="{{ url_for('static', filename='img/bread.jpg') }}" alt="image of category">
+                </a>
+              </figure>
+            </div>
+            <div class="col-md-4">
+              <figure class="item-figure text-center">
+                <a href="#">
+                  <img src="{{ url_for('static', filename='img/bread.jpg') }}" alt="image of category">
+                </a>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
 
 
 
-{% endblock %}
+    {% endblock %}
