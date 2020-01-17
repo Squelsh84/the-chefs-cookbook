@@ -8,14 +8,14 @@
 
 
 <div class="container">
-  <div class="row">
+  <div class="row text-center">
     <div class="col-lg-12">
       <div class="view-recipe text-center">
         <div class="rpe-cat">{{ recipe.recipe_category }}</div>
         <h2 class="rpe-name">{{ recipe.recipe_name }}</h2>
       </div>
-      <div class="row">
-        <li class="rcp-auth text-center"><i class="fas fa-user"></i> by <span>{{ recipe.recipe_author }}</span></a></li>
+      <div class="row text-center">
+        <h6 class="rcp-auth "><i class="fas fa-user"></i> by <span>{{ recipe.recipe_author }}</span></a></h6>
       </div>
       <div class="row">
         <div class="rcp-img text-center col-md-5">
@@ -36,6 +36,19 @@
               <h6>DIFFICULTY</h6><i class="fas fa-mitten"></i> {{ recipe.recipe_difficulty }}
             </li>
           </ul>
+          <ul class="action-item">
+            <li><button onclick="myFunction()"><i class="fas fa-print"></i></button></li>
+            <li class="action-share-hover"><button><i class="fas fa-share-alt"></i></button>
+              <div class="action-share-wrap">
+                <a href="#" title="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" title="twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" title="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" title="pinterest"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#" title="skype"><i class="fab fa-skype"></i></a>
+                <a href="#" title="rss"><i class="fas fa-rss"></i></a>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
       <div class="container">
@@ -44,7 +57,7 @@
             <div class="col-lg-5">
               <div class="card" style="margin:50px 0">
                 <h3 class="item-title text-center">
-                  <i class="fas fa-list-ul"></i>Ingredients
+                  <i class="fas fa-list-ul"></i> Ingredients
                 </h3>
                 <div>
 
@@ -68,7 +81,7 @@
             <div class="col-lg-7">
               <div class="card" style="margin:50px 0">
                 <h3 class="item-title text-center">
-                  <i class="fas fa-list-ul"></i>Cooking Procedure
+                  <i class="fas fa-list-ul"></i> Cooking Procedure
                 </h3>
                 <div>
 
