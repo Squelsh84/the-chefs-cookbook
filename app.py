@@ -43,7 +43,6 @@ def add_recipe():
 # Insert Recipe
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
-    today = datetime.now().strftime('%m-%d-%Y')
     recipes = mongo.db.recipes
     new_recipe = {
         'recipe_name': request.form.get('recipe_name'),
@@ -60,7 +59,7 @@ def insert_recipe():
     }
     recipes.insert_one(new_recipe)
     flash('You have added a new recipe successfully!', 'success')
-    return redirect(url_for('index'))
+    return redirect(url_for('get_recipe'))
 
 
 # Edit and Update Recipe
@@ -95,6 +94,20 @@ def update_recipe(recipe_id):
                    })
     flash('Your recipe has updated successfully')
     return redirect(url_for('viewrecipe', recipe_id=recipe_id))
+
+
+
+# Delete Recipe 
+
+@app.route('/delete_recipe<recipe_id>')
+def delete_recipe(recipe_id):
+    mongo.db.recipe.delete_one({'_id': ObjectId(recipe_id)})
+    flash("This recipe has been deleted")
+    return redirect(url_for('index'))
+
+
+
+
 
 
 if __name__ == '__main__':
