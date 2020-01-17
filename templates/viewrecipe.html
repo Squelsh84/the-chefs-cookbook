@@ -38,13 +38,36 @@
           </ul>
           <ul class="action-item">
             <li><button onclick="myFunction()"><i class="fas fa-print"></i></button></li>
-            <li class="action-share-hover"><button><i class="fas fa-share-alt"></i></button>
-              <div class="action-share-wrap">
-                <a href="https://facebook.com/" title="facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com/" title="twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://linkedin.com/" title="linkedin"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://pinterest.com/" title="pinterest"><i class="fab fa-pinterest-p"></i></a>
-              </div>
+
+            <div class="action-share-wrap">
+              <a data-toggle="dropdown" class="btn btn-info">
+                <i class="fa fa-share-alt fa-inverse"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a data-original-title="Twitter" rel="tooltip" href="#" class="btn btn-twitter" data-placement="left">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a data-original-title="Facebook" rel="tooltip" href="#" class="btn btn-facebook"
+                    data-placement="left">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li>
+                  <a data-original-title="LinkedIn" rel="tooltip" href="#" class="btn btn-linkedin"
+                    data-placement="left">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </li>
+                <li>
+                  <a data-original-title="Pinterest" rel="tooltip" class="btn btn-pinterest" data-placement="left">
+                    <i class="fab fa-pinterest-p"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
             </li>
           </ul>
         </div>
@@ -98,9 +121,38 @@
           </div>
         </div>
       </div>
-      <a role="button" href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-warning btn-sm">Edit</a>
-      <a role="button" href="{{ url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-danger btn-sm">
-        Delete</button>
+      <a role="button" href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-warning ">Edit</a>
+      <!-- Button to Open the Modal -->
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+        Delete
+      </button>
+
+      <!-- The Modal -->
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header ">
+              <h4 class="modal-title ">Caution</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              You are about to permanently delete your recipe. Press delete if you are sure.
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+              <a role="button" href="{{ url_for('delete_recipe', recipe_id=recipe._id)}}"
+                class="btn btn-danger ">Delete</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
