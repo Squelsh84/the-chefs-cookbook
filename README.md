@@ -39,25 +39,31 @@ I'm heading into town and dont have any battery left in my phone. I want to prin
 
 I decided to use balsamiq to create my mock-ups because it is easy to use and gave me a real visual of what I wanted to implement. These can be found [here]() 
 
-
 # Pages
 
-## Home Page
+### Home Page
 
-## Login User Page
+### Login User Page
 
-## Register New Accont Page
+### Register New Accont Page
 
-## View Recipes Page
+### View Recipes Page
 
-## Add Recipe Page
+### Add Recipe Page
 
-## Edit Recipe Page
+### Edit Recipe Page
 
 
 ## Future Features
 
+There are alot of features that could be added in the future. Some that I would like to implement are -
 
+- If the view recipe page is refreshed, then the ingredients marked as already got are still marked and not reset.
+- Create a Search bar to make navigation faster towards a specific recipe.
+- To have a users page which shows all their information such as added recipes, most liked recipe and comments on      their recipes.  
+- A password reset for users who have forgotten their passwords.
+- A pop-up to easily covert measurements.
+- To have it it multiply languages so it can be used worldwide.
 
 # Database Design
 
@@ -196,13 +202,22 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 11. Under **deploy/ manual deploy** click **deploy branch**.
 12. Under **resources/ free dynos** click **edit** and **confirm**.
 
-# Credits
+## Credits
 
-## Content
+### Content
 
+- Some recipes were taken from [bbcgoodfood website](https://www.bbcgoodfood.com/)
+- Images from the carousel were taken from [pixabay](https://pixabay.com/)
+- Quotes are from [google](https://google.com/)
+  
+### Code
 
-
+- [Corey Schafer - Youtube Flask Series](https://www.youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH)
+- [Pretty Printed](https://www.youtube.com/results?search_query=pretty+printed+flask+login)
+- [MongoDB Documentation](https://docs.mongodb.com/)
+- [Stack Overflow](https://stackoverflow.com/)
+- [Flask Documentation](http://flask.palletsprojects.com/en/1.1.x/)
 
 ## Acknowledgements
 
--
+- Another big thank you to my mentor Seun Owonikoko who guided me through another projectand to all the great people on Slack who take give their time to answer peoples questions. Many problems I have encountered have already been answered there.
