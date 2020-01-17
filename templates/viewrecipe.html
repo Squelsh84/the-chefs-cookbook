@@ -15,7 +15,7 @@
         <h2 class="rpe-name">{{ recipe.recipe_name }}</h2>
       </div>
       <div class="row text-center">
-        <h6 class="rcp-auth "><i class="fas fa-user"></i> by <span>{{ recipe.recipe_author }}</span></a></h6>
+        <h6 class="rcp-auth "><i class="fas fa-user"></i> By <span>{{ recipe.recipe_author }}</span></a></h6>
       </div>
       <div class="row">
         <div class="rcp-img text-center col-md-5">
@@ -99,7 +99,8 @@
         </div>
       </div>
       <a role="button" href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-warning btn-sm">Edit</a>
-      <ban role="button" class="btn btn-danger btn-sm">Delete</button>
+      <a role="button" href="{{ url_for('delete_recipe', recipe_id=recipe._id)}}" class="btn btn-danger btn-sm">
+        Delete</button>
     </div>
   </div>
 </div>
