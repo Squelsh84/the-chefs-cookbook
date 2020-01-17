@@ -1,3 +1,5 @@
+
+// https://stackoverflow.com/questions/9173182/add-remove-input-field-dynamically-with-jquery
 // Add Ingredients-Add recipe
 var directionCount = $(".ingredient").length;
 /* add new cloned item */
