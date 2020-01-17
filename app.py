@@ -67,7 +67,7 @@ def insert_recipe():
 @app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
-    categories = mongo.db.categories.find_()
+    categories = mongo.db.categories.find()
     difficulty = mongo.db.difficulties.find()
     return render_template('editrecipe.html',
                            title='Edit Recipe',
