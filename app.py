@@ -96,18 +96,13 @@ def update_recipe(recipe_id):
     return redirect(url_for('viewrecipe', recipe_id=recipe_id))
 
 
-
-# Delete Recipe 
+# Delete Recipe
 
 @app.route('/delete_recipe<recipe_id>')
 def delete_recipe(recipe_id):
-    mongo.db.recipe.delete_one({'_id': ObjectId(recipe_id)})
+    mongo.db.recipes.delete_one({'_id': ObjectId(recipe_id)})
     flash("This recipe has been deleted")
     return redirect(url_for('index'))
-
-
-
-
 
 
 if __name__ == '__main__':
