@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from Flask_bcrypt import Bcrypt
 from datetime import datetime
 
 
@@ -11,6 +12,7 @@ app.config['MONGO_DBNAME'] = os.getenv('MONGO_DBNAME')
 app.config['MONGO_URI'] = os.getenv('MONGO_URI')
 
 mongo = PyMongo(app)
+bcrypt = Bcrypt(app)
 
 
 # Home
@@ -18,6 +20,34 @@ mongo = PyMongo(app)
 @app.route('/index')
 def index():
     return render_template('index.html', title='home')
+
+
+# User Login
+@app.route('/login')
+def login():
+    return ''
+
+
+# User Register
+@app.route('/register')
+def register():
+    if request.method == 'POST':
+        users = mongo.db.users
+        existing_user = users.find_one({'name': request.form['username']})
+
+        if existing_user is None:
+            hash_password = bcrypt.generate_password_hash(
+                request.form['pass']).decode('utf-8')
+            users.insert({'name' :request.form['username'], 'password' : hash_password})
+            session['username'] = request.form['username']
+            return redirect(url_for('index'))
+
+        return 'That username already exists'
+
+    return redirect('/register')
+
+
+
 
 
 # View All Recipes
