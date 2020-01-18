@@ -37,6 +37,8 @@ def login():
         flash('Invalid username/password combination')
     return render_template('login.html')
 
+
+
 # User Register
 @app.route('/register', methods=['POST', 'GET'])
 def register():
@@ -56,6 +58,16 @@ def register():
     return render_template('register.html')
 
 
+""" Users can logout off their account and session.pop will 
+    clear the session.
+"""
+# User Logout
+@app.route('/logout')
+def logout():
+    if 'username' in session:
+        session.pop('username')
+    flash('You have been logged out')
+    return redirect(url_for('index'))
 
 
 
