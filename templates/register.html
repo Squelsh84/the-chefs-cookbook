@@ -1,24 +1,32 @@
 {% extends 'base.html' %} {% block content %}
 
 
-
-
-
 <div class="container">
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <form method=POST action="{{ url_for('register') }}">
+  <div class="content-section register-content">
+    <form method=POST action="{{ url_for('register') }}">
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4 text-center">
+          <h3>Join Today</h3>
+        </legend>
         <div class="form-group">
-          <label for="exampleInputEmail1">Username</label>
-          <input type="text" class="form-control" name="username" placeholder="Username">
+          <label for="username"><b>Username</b></label>
+          <input type="text" class="form-control" name="username" placeholder="Username" required="required">
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" name="pass" placeholder="Password">
+          <label for="email"><b>E-mail</b></label>
+          <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1"><b>Password</b></label>
+          <input type="password" class="form-control" name="pass" placeholder="Password" required="required">
         </div>
         <button type="submit" class="btn btn-primary btn-block">Register</button>
-      </form>
-      <br>
+      </fieldset>
+    </form>
+  </div>
+  <div class="border-top pt-3">
+    <div class="text-muted">
+      Already Have An Account? <a class="ml-2" href="{{ url_for('login') }}">Sign In</a>
     </div>
   </div>
 </div>
