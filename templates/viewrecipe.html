@@ -121,6 +121,7 @@
           </div>
         </div>
       </div>
+      {% if recipe.recipe_author == session['username'] %}
       <a role="button" href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-warning ">Edit</a>
       <!-- Button to Open the Modal -->
       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
@@ -153,6 +154,7 @@
           </div>
         </div>
       </div>
+      {% endif %}
     </div>
   </div>
 </div>
