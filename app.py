@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from Flask_bcrypt import Bcrypt
+from flask_bcrypt import Bcrypt
 from datetime import datetime
 
 
@@ -23,13 +23,21 @@ def index():
 
 
 # User Login
-@app.route('/login')
+@app.route('/login', methods=['POST'])
 def login():
-    return ''
+    users = mongo.db.users
+    login_user = users.find_one({'name': request.form['username']})
 
+    if login_user:
+        if bcrypt.check_password_hash(
+            request.form['pass'].decode('utf-8'), login_user['password']) == login_user['password'].encode('utf-8'):
+            session['username'] = request.form['username']
+            return redirect(url_for('index'))
+
+    return 'Invalid username/password combination'
 
 # User Register
-@app.route('/register')
+@app.route('/register', methods=['POST', 'GET'])
 def register():
     if request.method == 'POST':
         users = mongo.db.users
@@ -38,13 +46,13 @@ def register():
         if existing_user is None:
             hash_password = bcrypt.generate_password_hash(
                 request.form['pass']).decode('utf-8')
-            users.insert({'name' :request.form['username'], 'password' : hash_password})
+            users.insert_one({'name' :request.form['username'], 'password' : hash_password})
             session['username'] = request.form['username']
             return redirect(url_for('index'))
 
         return 'That username already exists'
-
-    return redirect('/register')
+    
+    return render_template('register.html')
 
 
 
