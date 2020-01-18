@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from flask_bcrypt import Bcrypt
+import bcrypt
 from datetime import datetime
 
 
@@ -12,30 +12,37 @@ app.config['MONGO_DBNAME'] = os.getenv('MONGO_DBNAME')
 app.config['MONGO_URI'] = os.getenv('MONGO_URI')
 
 mongo = PyMongo(app)
-bcrypt = Bcrypt(app)
+
 
 
 # Home
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title='home')
+    return render_template('index.html', title='Home')
 
+
+
+
+"""
+User Login and Registeration taken from Pretty Printed youtube 
+video https://www.youtube.com/watch?v=vVx1737auSE
+"""
 
 # User Login
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
         users = mongo.db.users
-        login_user = users.find_one({'username': request.form['username']})
+        login_user = users.find_one({'username' : request.form['username']})
         if login_user:
-            if bcrypt.check_password_hash(
-                request.form['pass'].decode('utf-8'), login_user['password']) == login_user['password'].encode('utf-8'):
+            if bcrypt.hashpw(request.form['pass'].encode('utf-8'), 
+                            login_user['password']) == login_user['password']:
                 session['username'] = request.form['username']
                 return redirect(url_for('index'))
-
-        flash('Invalid username/password combination')
-    return render_template('login.html')
+            flash("Invalid Username or Password. Try again.")
+        flash("Invalid Username or Password. Try again.")    
+    return render_template('login.html', title='Login')
 
 
 
@@ -44,18 +51,19 @@ def login():
 def register():
     if request.method == 'POST':
         users = mongo.db.users
-        existing_user = users.find_one({'name': request.form['username']})
+        existing_user = users.find_one({'username': request.form.get('username')})
 
         if existing_user is None:
-            hash_password = bcrypt.generate_password_hash(
-                request.form['pass']).decode('utf-8')
-            users.insert_one({'name' :request.form['username'], 'password' : hash_password})
+            hash_password = bcrypt.hashpw(
+                request.form['pass'].encode('utf-8'), bcrypt.gensalt())
+            users.insert_one({'username' :request.form['username'], 'email' :request.form['email'], 'password' : hash_password})
             session['username'] = request.form['username']
+            flash('Lets get cooking!!')
             return redirect(url_for('index'))
 
         flash('That username already exists')
     
-    return render_template('register.html')
+    return render_template('register.html', title='Register')
 
 
 """ Users can logout off their account and session.pop will 
@@ -68,6 +76,15 @@ def logout():
         session.pop('username')
     flash('You have been logged out')
     return redirect(url_for('index'))
+
+
+# Display Recipes by Category
+@app.route('/recipes<recipe_category>')
+def recipe_category():
+    return render_template('recipes.html', recipes=mongo.db.recipes.find.one({'recipe_category': recipe_category}))
+
+
+
 
 
 
@@ -110,7 +127,7 @@ def insert_recipe():
     }
     recipes.insert_one(new_recipe)
     flash('You have added a new recipe successfully!', 'success')
-    return redirect(url_for('get_recipe'))
+    return redirect(url_for('get_recipes'))
 
 
 # Edit and Update Recipe
