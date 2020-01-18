@@ -84,6 +84,65 @@ def recipe_category():
     return render_template('recipes.html', recipes=mongo.db.recipes.find.one({'recipe_category': recipe_category}))
 
 
+@app.route('/get_starter', methods=['GET'])
+def get_starter():
+    return render_template('recipes.html', 
+                           title='Starters', 
+                           recipes=mongo.db.recipes.
+                           find({'recipe_category': 'Starter'}))
+
+@app.route('/get_main', methods=['GET'])
+def get_main():
+    return render_template('recipes.html', title='Main Courses', recipes=mongo.db.recipes.find({'recipe_category': 'Main Course'}))
+
+
+@app.route('/get_dessert', methods=['GET'])
+def get_dessert():
+    return render_template('recipes.html', title='Desserts', recipes=mongo.db.recipes.find({'recipe_category': 'Dessert'}))
+
+
+@app.route('/get_lunch', methods=['GET'])
+def get_lunch():
+    return render_template('recipes.html', title='Lunch', recipes=mongo.db.recipes.find({'recipe_category': 'Lunch'}))
+
+
+@app.route('/get_breakfast', methods=['GET'])
+def get_breakfast():
+    return render_template('recipes.html', title='Breakfast', recipes=mongo.db.recipes.find({'recipe_category': 'Breakfast'}))
+
+
+@app.route('/get_slowcooker', methods=['GET'])
+def get_slowcooker():
+    return render_template('recipes.html', title='Slow Cooker', recipes=mongo.db.recipes.find({'recipe_category': 'Slow Cooker'}))
+
+
+@app.route('/get_vegan', methods=['GET'])
+def get_vegan():
+    return render_template('recipes.html', title='Vegan', recipes=mongo.db.recipes.find({'recipe_category': 'Vegan'}))
+
+
+@app.route('/get_vegetarian', methods=['GET'])
+def get_vegetarian():
+    return render_template('recipes.html', title='Vegetarian', recipes=mongo.db.recipes.find({'recipe_category': 'Vegetarian'}))
+
+
+
+@app.route('/get_drinks', methods=['GET'])
+def get_drinks():
+    return render_template('recipes.html', title='Drinks', recipes=mongo.db.recipes.find({'recipe_category': 'Derink'}))
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
