@@ -62,7 +62,7 @@ There are alot of features that could be added in the future. Some that I would 
 - Create a Search bar to make navigation faster towards a specific recipe.
 - To have a users page which shows all their information such as added recipes, most liked recipe and comments on      their recipes.  
 - A password reset for users who have forgotten their passwords.
-- A pop-up to easily covert measurements.
+- A pop-up to easily covnert measurements.
 - To have it it multiply languages so it can be used worldwide.
 
 # Database Design
