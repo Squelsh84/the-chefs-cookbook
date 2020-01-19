@@ -39,6 +39,7 @@ def login():
             if bcrypt.hashpw(request.form['pass'].encode('utf-8'), 
                             login_user['password']) == login_user['password']:
                 session['username'] = request.form['username']
+                flash("You have successfully logged in")
                 return redirect(url_for('index'))
             flash("Invalid Username or Password. Try again.")
         flash("Invalid Username or Password. Try again.")    
@@ -56,7 +57,7 @@ def register():
         if existing_user is None:
             hash_password = bcrypt.hashpw(
                 request.form['pass'].encode('utf-8'), bcrypt.gensalt())
-            users.insert_one({'username' :request.form['username'], 'email' :request.form['email'], 'password' : hash_password})
+            users.insert_one({'username' :request.form['username'], 'password' : hash_password})
             session['username'] = request.form['username']
             flash('Lets get cooking!!')
             return redirect(url_for('index'))
@@ -90,6 +91,7 @@ def get_starter():
                            title='Starters', 
                            recipes=mongo.db.recipes.
                            find({'recipe_category': 'Starter'}))
+
 
 @app.route('/get_main', methods=['GET'])
 def get_main():
@@ -134,19 +136,6 @@ def get_drinks():
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 # View All Recipes
 @app.route('/get_recipes')
 def get_recipes():
@@ -170,6 +159,11 @@ def add_recipe():
 # Insert Recipe
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
+
+    if 'username' not in session:  
+        flash('Please login or create an account to add a recipe.')
+        return redirect(url_for('login'))
+
     recipes = mongo.db.recipes
     new_recipe = {
         'recipe_name': request.form.get('recipe_name'),
@@ -190,23 +184,29 @@ def insert_recipe():
 
 
 # Edit and Update Recipe
-@app.route('/edit_recipe/<recipe_id>')
+@app.route('/edit_recipe/<recipe_id>', methods=['GET'])
 def edit_recipe(recipe_id):
+
+    if 'username' not in session:  
+        flash('Please login to edit.')
+        return redirect(url_for('login'))
+
     recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     categories = mongo.db.categories.find()
-    difficulty = mongo.db.difficulties.find()
+    difficulty = mongo.db.difficulty.find()
     return render_template('editrecipe.html',
                            title='Edit Recipe',
                            recipe=recipe,
                            categories=categories,
-                           difficulty=difficulty)
+                           difficulty=difficulty
+                            )
 
 
 # Update Recipe
-@app.route('/update_recipe/<recipe_id>')
+@app.route('/update_recipe/<recipe_id>', methods=[ 'POST'])
 def update_recipe(recipe_id):
     recipe = mongo.db.recipes
-    recipe.update({'recipe_id': ObjectId(recipe_id),
+    recipe.update({'_id': ObjectId(recipe_id)},{
                    'recipe_name': request.form.get('recipe_name'),
                    'recipe_description': request.form.get('recipe_description'),
                    'recipe_prep': request.form.get('recipe_prep'),
@@ -219,7 +219,7 @@ def update_recipe(recipe_id):
                    'recipe_difficulty': request.form.get('recipe_difficulty'),
                    'recipe_author': request.form.get('recipe_author')
                    })
-    flash('Your recipe has updated successfully')
+    flash('Your recipe has been updated')
     return redirect(url_for('viewrecipe', recipe_id=recipe_id))
 
 
@@ -229,7 +229,7 @@ def update_recipe(recipe_id):
 def delete_recipe(recipe_id):
     mongo.db.recipes.delete_one({'_id': ObjectId(recipe_id)})
     flash("This recipe has been deleted")
-    return redirect(url_for('index'))
+    return redirect(url_for('recipes'))
 
 
 if __name__ == '__main__':
