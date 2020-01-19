@@ -6,8 +6,7 @@
 1. [UX](#ux)
     - [User Stories](#user-stories)
     - [Design](#design)
-    - [Navigation](#navgation)
-  
+
 2. [Wireframes](#wireframe)
 
 3. [Features](#features)
@@ -57,11 +56,17 @@ I'm heading into town and dont have any battery left in my phone. I want to prin
 
 ## Design
 
+### Theme
+
+- The idea for the theme was to keep it simple and not over crowded with information. I wanted to keep it simple for  ease of navigation.
+
+### Color Scheme
+
 -
 
-### Navigation
+### Typography
 
--
+- I have kept the font to just one. I went with a very easy and readible font Montserrat, which is always a popular     font and it's easy to see why.
 
 # Wireframe
 
@@ -71,31 +76,31 @@ I decided to use balsamiq to create my mock-ups because it is easy to use and ga
 
 ## Current Features
 
-## Home Page
+### Home Page
 
 - Any user that arrives at the home page can view recipes by category. If they have an account they can log in on by   the link in the navbar. If they don't have an account they have the option to register. Once the user logs in the    navbar will change and have the options to view recipes, add recipes and logout.
 
-## Register New Account Page
+### Register New Account Page
 
 - Any user can join the commnity by creating a new account. Before the account is created the username is check to     ensure that it hasn't been created before. Users passwords are hashed for security purposes and once all criteria    is met they are redirected to the home page. If a user has an account already then they can click the link to the    login page.
 
-## Login User Page
+### Login User Page
 
 - Users can easily log into their accounts by providing their username and password. The password will be cross        checked with the password in the database. If the username or password are incorrect a message will flash saying     "Username of password are incorrect". When the user enters in their username and password correctly they are         redirected to the home page and a message flashes saying "You're Logged in."
   
-## Create Recipe Page
+### Create Recipe Page
 
 - If a user is signed up and logged in they can add a recipe to the database. The add recipe page is a form with       each section being mandatory. If a user misses a a part they will be reminded when the click the add button. For     the ingredients and method section they can add and remove lines as its one instruction per line. For the category   and difficulty sections it is a dropdown to choose from. Once all fields are filled they can add the recipe.
 
-## View Recipes Page
+### View Recipes Page
 
 - All recipes are displayed on the recipes page. Each recipe displays a little bit of information about the recipe.    If a user wants to see more they can click on the image and will be redirected to that recipes page. If a user       wants to see a specific category they can click on the recipes tab on the navbar and select the specific category.
 
-## Update/Edit Recipe Page
+### Update/Edit Recipe Page
 
 - A user has the option to update their own recipes. They must be logged in to view this option att the bottom of      their recipe. If they want to update their recipe it will bring them to update recipe page where they can add or     remove what they need.  
 
-## Delete Recipe
+### Delete Recipe
 
 - Users can only delete their own recipes. The user must be logged in to have this option. When the user is logged in and the usernames match the delete option becomes available. The delete button when click will activate a pop-up to confirm that the user really wants to delete the recipe. If they are sure the can click delete, if pressed by mistake they can close the pop-up and continue what they were doing.
 
@@ -180,11 +185,9 @@ Please find below the structure I used for my database using MongoDB.
 - [Font Awesome](https://fontawesome.com/) Used for all icons.
 - [Bootstrap](https://getbootstrap.com/) Used for responsive layout and styling.
 
-
 ## Design Tools
 
 - [Balsamiq](https://balsamiq.com/) Used to develop wireframes for the website.
-
 
 # Testing
 
