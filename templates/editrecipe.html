@@ -16,8 +16,8 @@
       <label for="recipe_name">
         <h4>Recipe Name</h4>
       </label>
-      <input id="recipe_name" name="recipe_name" type="text" placeholder="Name your dish" required="required"
-        class="form-control">
+      <input value="{{ recipe.recipe_name}}" id="recipe_name" name="recipe_name" type="text"
+        placeholder="Name your dish" required="required" class="form-control">
     </div>
 
     <!-- Recipe Description -->
@@ -25,8 +25,8 @@
       <label for="recipe_description">
         <h4>Short Description</h4>
       </label>
-      <input id="recipe_description" name="recipe_description" type="text" placeholder="Sum up your recipe in a line"
-        required="required" class="form-control">
+      <input value="{{ recipe.recipe_description }}" id="recipe_description" name="recipe_description" type="text"
+        placeholder="Sum up your recipe in a line" required="required" class="form-control">
     </div>
 
     <!-- Preperation Time -->
@@ -34,8 +34,8 @@
       <label for="recipe_prep">
         <h4>Preperation Time</h4>
       </label>
-      <input id="recipe_prep" name="recipe_prep" type="text" placeholder="Time taken to prepare" required="required"
-        class="form-control">
+      <input value="{{ recipe.recipe_prep }}" id="recipe_prep" name="recipe_prep" type="text"
+        placeholder="Time taken to prepare" required="required" class="form-control">
     </div>
 
     <!-- Cooking Time -->
@@ -43,8 +43,8 @@
       <label for="recipe_cook">
         <h4>Cooking Time</h4>
       </label>
-      <input id="recipe_cook" name="recipe_cook" type="text" placeholder="Time taken to cook" required="required"
-        class="form-control">
+      <input value="{{ recipe.recipe_cook }}" id="recipe_cook" name="recipe_cook" type="text"
+        placeholder="Time taken to cook" required="required" class="form-control">
     </div>
 
     <!-- Serving Size -->
@@ -52,8 +52,8 @@
       <label for="recipe_serving">
         <h4>Serves</h4>
       </label>
-      <input id="recipe_serving" name="recipe_serving" type="text" placeholder="Number of people it serves"
-        required="required" class="form-control">
+      <input value="{{ recipe.recipe_serving}}" id="recipe_serving" name="recipe_serving" type="text"
+        placeholder="Number of people it serves" required="required" class="form-control">
     </div>
 
     <!-- Recipe Image -->
@@ -61,8 +61,8 @@
       <label for="recipe_image">
         <h4>Recipe Image</h4>
       </label>
-      <input id="recipe_image" name="recipe_image" type="text" placeholder="Add your URL here" required="required"
-        class="form-control">
+      <input value="{{ recipe.recipe_image }}" id="recipe_image" name="recipe_image" type="text"
+        placeholder="Add your URL here" required="required" class="form-control">
     </div>
 
     <!-- Recipe Ingredients -->
@@ -71,8 +71,10 @@
         <h4>Recipe Ingredients</h4>
       </label>
       <div class="new-ingredient ingredient">
+        {% for ingredient in recipe.recipe_ingredients}
         <textarea id="recipe_ingredients" name="recipe_ingredients" cols="40" rows="1" class="form-control"
-          required="required" aria-describedby="textareaHelpBlock" placeholder="One Ingredient per line"></textarea>
+          required="required" aria-describedby="textareaHelpBlock" placeholder="One Ingredient per line">{{ ingredient }}</textarea>
+          {{ endfor }}
       </div>
 
     </div>
@@ -93,9 +95,11 @@
         <h4>Recipe Instructions</h4>
       </label>
       <div class="new-method method">
+        {{ for method in recipe_method }}
         <textarea id="recipe_method" name="recipe_method" cols="40" rows="3" class="form-control" required="required"
-          aria-describedby="textareaHelpBlock" placeholder="One step per line"></textarea>
+          aria-describedby="textareaHelpBlock" placeholder="One step per line">{{ method }}</textarea>
       </div>
+      {{ endfor }}
     </div>
     <!-- Add Next Step -->
     <button type="button" class="add-method btn btn-success">
@@ -117,8 +121,12 @@
         <select id="recipe_category" class="form-control">
           <option selected>Choose...</option>
           {% for cat in categories %}
-          <option value="{{cat.recipe_category}}">{{cat.recipe_category}}</option>
-          {% endfor %}
+        {% if cat.category_name == recipe.recipe_category %}
+        <option value="{{cat.recipe_category}}">{{cat.recipe_category}}</option>
+        {{ else }}
+        <option value="{{cat.recipe_category}}">{{cat.recipe_category}}</option>
+        {{ endif }}
+        {% endfor %}
         </select>
       </div>
 
@@ -131,7 +139,11 @@
         <select id="recipe_dificulty" class="form-control">
           <option selected>Choose...</option>
           {% for dif in difficulty %}
+          {% if dif.difficulty_name == recipe.recipe_difficulty %}
           <option value="{{dif.recipe_difficulty}}">{{dif.recipe_difficulty}}</option>
+          {{ else }}
+          <option value="{{dif.recipe_difficulty}}">{{dif.recipe_difficulty}}</option>
+          {% endif %}
           {% endfor %}
         </select>
       </div>
@@ -142,7 +154,8 @@
       <label for="recipe_author">
         <h4>Recipe Author</h4>
       </label>
-      <input id="recipe_author" name="recipe_author" type="text" required="required" class="form-control">
+      <input value="{{ recipe.recipe_author }}" id="recipe_author" name="recipe_author" type="text" required="required"
+        class="form-control">
     </div>
 
     <!-- Update Recipe Button -->
