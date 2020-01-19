@@ -25,80 +25,78 @@
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" id="navvar">
-    <div class="container">
-      <a class="navbar-brand" href="{{ url_for('index') }}">
-        The Chefs Cookbook
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
+    <a class="navbar-brand" href="{{ url_for('index') }}">
+      The Chefs Cookbook
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
 
-        <ul class="navbar-nav ml-auto">
-          {% if session['username'] %}
-          <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('index') }}">Home
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Recipes
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{url_for('get_starter')}}">Starters</a>
-              <a class="dropdown-item" href="{{url_for('get_main')}}">Main Course</a>
-              <a class="dropdown-item" href="{{url_for('get_dessert')}}">Desserts</a>
-              <a class="dropdown-item" href="{{url_for('get_lunch')}}">Lunch Ideas</a>
-              <a class="dropdown-item" href="{{url_for('get_breakfast')}}">Breakfast</a>
-              <a class="dropdown-item" href="{{url_for('get_slowcooker')}}">Slow Cooker</a>
-              <a class="dropdown-item" href="{{url_for('get_vegetarian')}}">Vegetarian</a>
-              <a class="dropdown-item" href="{{url_for('get_vegan')}}">Vegan</a>
-              <a class="dropdown-item" href="{{url_for('get_drinks')}}">Drinks</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ url_for('get_recipes') }}">All Recipes</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('add_recipe') }}">Add Recipe</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
-          </li>
-          {% else %}
-          <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('index') }}">Home
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Recipes
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{url_for('get_starter')}}">Starters</a>
-              <a class="dropdown-item" href="{{url_for('get_main')}}">Main Course</a>
-              <a class="dropdown-item" href="{{url_for('get_dessert')}}">Desserts</a>
-              <a class="dropdown-item" href="{{url_for('get_lunch')}}">Lunch Ideas</a>
-              <a class="dropdown-item" href="{{url_for('get_breakfast')}}">Breakfast</a>
-              <a class="dropdown-item" href="{{url_for('get_slowcooker')}}">Slow Cooker</a>
-              <a class="dropdown-item" href="{{url_for('get_vegetarian')}}">Vegetarian</a>
-              <a class="dropdown-item" href="{{url_for('get_vegan')}}">Vegan</a>
-              <a class="dropdown-item" href="{{url_for('get_drinks')}}">Drinks</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ url_for('get_recipes') }}">All Recipes</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('login') }}">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('register') }}">Register</a>
-          </li>
-          {% endif %}
-        </ul>
-      </div>
+      <ul class="navbar-nav ml-auto">
+        {% if session['username'] %}
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url_for('index') }}">Home
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Recipes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{url_for('get_starter')}}">Starters</a>
+            <a class="dropdown-item" href="{{url_for('get_main')}}">Main Course</a>
+            <a class="dropdown-item" href="{{url_for('get_dessert')}}">Desserts</a>
+            <a class="dropdown-item" href="{{url_for('get_lunch')}}">Lunch Ideas</a>
+            <a class="dropdown-item" href="{{url_for('get_breakfast')}}">Breakfast</a>
+            <a class="dropdown-item" href="{{url_for('get_slowcooker')}}">Slow Cooker</a>
+            <a class="dropdown-item" href="{{url_for('get_vegetarian')}}">Vegetarian</a>
+            <a class="dropdown-item" href="{{url_for('get_vegan')}}">Vegan</a>
+            <a class="dropdown-item" href="{{url_for('get_drinks')}}">Drinks</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{ url_for('get_recipes') }}">All Recipes</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('add_recipe') }}">Add Recipe</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url_for('index') }}">Home
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Recipes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{url_for('get_starter')}}">Starters</a>
+            <a class="dropdown-item" href="{{url_for('get_main')}}">Main Course</a>
+            <a class="dropdown-item" href="{{url_for('get_dessert')}}">Desserts</a>
+            <a class="dropdown-item" href="{{url_for('get_lunch')}}">Lunch Ideas</a>
+            <a class="dropdown-item" href="{{url_for('get_breakfast')}}">Breakfast</a>
+            <a class="dropdown-item" href="{{url_for('get_slowcooker')}}">Slow Cooker</a>
+            <a class="dropdown-item" href="{{url_for('get_vegetarian')}}">Vegetarian</a>
+            <a class="dropdown-item" href="{{url_for('get_vegan')}}">Vegan</a>
+            <a class="dropdown-item" href="{{url_for('get_drinks')}}">Drinks</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{ url_for('get_recipes') }}">All Recipes</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+        </li>
+        {% endif %}
+      </ul>
     </div>
   </nav>
 
@@ -108,7 +106,7 @@
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     {% for message in messages %}
-    <div class="alert alert-warning alert-dismissible" role="alert">
+    <div class="alert alert-info alert-dismissible" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
           aria-hidden="true">×</span></button>
       <h5>{{message}}</h5>
@@ -128,8 +126,34 @@
 
 
 
-  <footer class="bg-dark">
 
+  <footer class="footer-bg-dark footer-dark fixed">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-sm-6 col-md-6 item">
+          <h3>Useful Links</h3>
+          <ul>
+            <li><a href="https://www.thecalculatorsite.com/cooking/" target="_blank">Cooking Converters</a></li>
+            <li><a href="https://www.d.umn.edu/~alphanu/cookery/glossary_cooking.html" target="_blank">Cooking Terms
+                Glossary</a></li>
+            <li><a href="https://www.healthline.com/nutrition/10-healthy-herbs-and-spices" target="_blank">Interesting
+                Benefits of Spices</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6 item text">
+          <h3>The Chefs Cookbook</h3>
+          <p>The Chefs Cookbook is a place to keep all those tasty recipes you've discovered over the years. Not only do
+            you have a place to store them but also a place to discover many more as other aspiring chefs share their
+            recipes too.</p>
+        </div>
+        <div class="col item social"><a href="https://www.facebook.com/" target="_blank"><i
+              class="fab fa-facebook"></i></a><a href="https://wwww.twitter.com/" target="_blank"><i
+              class="fab fa-twitter"></i></a><a href="https://www.instagram.com/" target="_blank"><i
+              class="fab fa-instagram"></i></a></div>
+      </div>
+      <p class="copyright text-center">Mark Walsh © 2020</p>
+    </div>
   </footer>
 
 
