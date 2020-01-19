@@ -93,29 +93,98 @@
   <div class="row">
     <div class="col-md-12">
       <div class="recipe-cat">
-        <h3>Recipe Categories</h3>
+        <h2>Recipe Categories</h2>
         <hr>
       </div>
       <div class="row">
         <div class="col-md-4">
           <figure class="item-figure text-center">
+            <a href="{{url_for('get_starter')}}">
+              <img src="{{ url_for('static', filename='img/bread.jpg') }}" alt="image of category">
+            </a>
+            <h3 class="category-title ">
+              <a href="{{url_for('get_starter')}}">Starters</a>
+            </h3>
+          </figure>
+        </div>
+        <div class="col-md-4">
+          <figure class="item-figure text-center">
             <a href="{{url_for('get_main')}}">
-              <img src="{{ url_for('static', filename='img/bread.jpg') }}" alt="image of category">
+              <img src="{{ url_for('static', filename='img/asparagus.jpg') }}" alt="image of steak">
             </a>
+            <h3 class="category-title ">
+              <a href="{{url_for('get_main')}}">Main Course</a>
+            </h3>
           </figure>
         </div>
         <div class="col-md-4">
           <figure class="item-figure text-center">
-            <a href="#">
-              <img src="{{ url_for('static', filename='img/bread.jpg') }}" alt="image of category">
+            <a href="{{url_for('get_dessert')}}">
+              <img src="{{ url_for('static', filename='img/dessert.jpg') }}" alt="image of dessert">
             </a>
+            <h3 class="category-title ">
+              <a href="{{url_for('get_dessert')}}">Desserts</a>
+            </h3>
           </figure>
         </div>
         <div class="col-md-4">
           <figure class="item-figure text-center">
-            <a href="#">
-              <img src="{{ url_for('static', filename='img/bread.jpg') }}" alt="image of category">
+            <a href="{{url_for('get_lunch')}}">
+              <img src="{{ url_for('static', filename='img/saladed.jpg') }}" alt="image of food">
             </a>
+            <h3 class="category-title ">
+              <a href="{{url_for('get_lunch')}}">Lunch Ideas</a>
+            </h3>
+          </figure>
+        </div>
+        <div class="col-md-4">
+          <figure class="item-figure text-center">
+            <a href="{{url_for('get_breakfast')}}">
+              <img src="{{ url_for('static', filename='img/pastries.jpg') }}" alt="image of waffles">
+            </a>
+            <h3 class="category-title ">
+              <a href="{{url_for('get_breakfast')}}">Breakfast</a>
+            </h3>
+          </figure>
+        </div>
+        <div class="col-md-4">
+          <figure class="item-figure text-center">
+            <a href="{{url_for('get_slowcooker')}}">
+              <img src="{{ url_for('static', filename='img/soup.jpg') }}" alt="image of soup">
+            </a>
+            <h3 class="category-title ">
+              <a href="{{url_for('get_slowcooker')}}">Slow Cooker</a>
+            </h3>
+          </figure>
+        </div>
+        <div class="col-md-4">
+          <figure class="item-figure text-center">
+            <a href="{{url_for('get_vegan')}}">
+              <img src="{{ url_for('static', filename='img/vegetables.jpg') }}" alt="image of vegetables">
+            </a>
+            <h3 class="category-title ">
+              <a href="{{url_for('get_vegan')}}">Vegan</a>
+            </h3>
+          </figure>
+        </div>
+        <div class="col-md-4">
+          <figure class="item-figure text-center">
+            <a href="{{url_for('get_vegetarian')}}">
+              <img src="{{ url_for('static', filename='img/salad.jpg') }}" alt="image of vegetables">
+            </a>
+            <h3 class="category-title ">
+              <a href="{{url_for('get_vegetarian')}}">Vegetarian</a>
+            </h3>
+          </figure>
+        </div>
+        <div class="col-md-4">
+          <figure class="item-figure text-center">
+            <a href="{{url_for('get_drinks')}}">
+              <img src="{{ url_for('static', filename='img/fruitcocktails.jpg') }}" alt="image of category">
+            </a>
+            <h3 class="category-title ">
+              <a href="{{url_for('get_drinks')}}">Drinks</a>
+            </h3>
           </figure>
         </div>
       </div>
