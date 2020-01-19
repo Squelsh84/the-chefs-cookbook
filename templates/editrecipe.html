@@ -16,7 +16,7 @@
       <label for="recipe_name">
         <h4>Recipe Name</h4>
       </label>
-      <input value="{{ recipe.recipe_name}}" id="recipe_name" name="recipe_name" type="text"
+      <input value="{{ recipe.recipe_name }}" id="recipe_name" name="recipe_name" type="text"
         placeholder="Name your dish" required="required" class="form-control">
     </div>
 
@@ -52,7 +52,7 @@
       <label for="recipe_serving">
         <h4>Serves</h4>
       </label>
-      <input value="{{ recipe.recipe_serving}}" id="recipe_serving" name="recipe_serving" type="text"
+      <input value="{{ recipe.recipe_serving }}" id="recipe_serving" name="recipe_serving" type="text"
         placeholder="Number of people it serves" required="required" class="form-control">
     </div>
 
@@ -71,10 +71,11 @@
         <h4>Recipe Ingredients</h4>
       </label>
       <div class="new-ingredient ingredient">
-        {% for ingredient in recipe.recipe_ingredients}
+        {% for ingredient in recipe.recipe_ingredients %}
         <textarea id="recipe_ingredients" name="recipe_ingredients" cols="40" rows="1" class="form-control"
-          required="required" aria-describedby="textareaHelpBlock" placeholder="One Ingredient per line">{{ ingredient }}</textarea>
-          {{ endfor }}
+          required="required" aria-describedby="textareaHelpBlock"
+          placeholder="One Ingredient per line">{{ ingredient }}</textarea>
+        {% endfor %}
       </div>
 
     </div>
@@ -95,11 +96,11 @@
         <h4>Recipe Instructions</h4>
       </label>
       <div class="new-method method">
-        {{ for method in recipe_method }}
+        {% for method in recipe.recipe_method %}
         <textarea id="recipe_method" name="recipe_method" cols="40" rows="3" class="form-control" required="required"
           aria-describedby="textareaHelpBlock" placeholder="One step per line">{{ method }}</textarea>
+        {% endfor %}
       </div>
-      {{ endfor }}
     </div>
     <!-- Add Next Step -->
     <button type="button" class="add-method btn btn-success">
@@ -121,12 +122,12 @@
         <select id="recipe_category" class="form-control">
           <option selected>Choose...</option>
           {% for cat in categories %}
-        {% if cat.category_name == recipe.recipe_category %}
-        <option value="{{cat.recipe_category}}">{{cat.recipe_category}}</option>
-        {{ else }}
-        <option value="{{cat.recipe_category}}">{{cat.recipe_category}}</option>
-        {{ endif }}
-        {% endfor %}
+          {% if cat.category_name == recipe.recipe_category %}
+          <option value="{{cat.recipe_category}}">{{cat.recipe_category}}</option>
+          {% else %}
+          <option value="{{cat.recipe_category}}">{{cat.recipe_category}}</option>
+          {% endif %}
+          {% endfor %}
         </select>
       </div>
 
@@ -141,7 +142,7 @@
           {% for dif in difficulty %}
           {% if dif.difficulty_name == recipe.recipe_difficulty %}
           <option value="{{dif.recipe_difficulty}}">{{dif.recipe_difficulty}}</option>
-          {{ else }}
+          {% else %}
           <option value="{{dif.recipe_difficulty}}">{{dif.recipe_difficulty}}</option>
           {% endif %}
           {% endfor %}
