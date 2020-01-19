@@ -1,25 +1,25 @@
 
 # [The Chefs Cookbook](https://the-chefs-diary.herokuapp.com/index)
 
-## UX
+# UX
 
 The Chefs Cookbook is a website created to help people like me to keep all their recipes in one place and also maybe find some new ones shared by others. I lived with chefs for many years and most of my recipes were written on pieces of paper or on the  back of envelopes and have disapeared over time. So after loosing so many recipes, I decided enough was enough and created the chefs cookbook for my chef friends to share all thier recipes with me again.
 
-### User Stories
+## User Stories
 
-#### User Story 1 - Find A Recipe
+### User Story 1 - Find A Recipe
 
 I'm tired of the same old food and want to try something different. I want to see new recipes with different skill levels.
 
-#### User Story 2 - Add A New Recipe
+### User Story 2 - Add A New Recipe
 
 I've found a great recipe in a magazine but dont want to buy it just for the recipe.
 
-#### User Story 3 - Share A Recipe
+### User Story 3 - Share A Recipe
 
 My friend ask me for the recipe for the dish I cooked the other night at our dinner party.
 
-#### User Story 4 - Print The Recipe
+### User Story 4 - Print The Recipe
 
 I'm heading into town and dont have any battery left in my phone. I want to print it out to bring with me for the ingredients.
 
@@ -41,18 +41,28 @@ I decided to use balsamiq to create my mock-ups because it is easy to use and ga
 
 # Pages
 
-### Home Page
+## Home Page
 
-### Login User Page
 
-### Register New Accont Page
+## Register New Account Page
 
-### View Recipes Page
+- Any user can join the commnity by creating a new account. Before the account is created the username is check to     ensure that it hasn't been created before. Users passwords are hashed for security purposes and once all criteria    is met they are redirected to the home page. If a user has an account already then they can click the link to the    login page.
 
-### Add Recipe Page
+## Login User Page
 
-### Edit Recipe Page
+- Users can easily log into their accounts by providing their username and password. The password will be cross        checked with the password in the database. If the username or password are incorrect a message will flash saying     "Username of password are incorrect". When the user enters in their username and password correctly they are         redirected to the home page and a message flashes saying "You're Logged in."
+  
+## View Recipes Page
 
+- All recipes are displayed on the recipes page. Each recipe displays a little bit of information about the recipe.    If a user wants to see more they can click on the image and will be redirected to that recipes page. If a user       wants to see a specific category they can click on the recipes tab on the navbar and select the specific category.
+
+## Add Recipe Page
+
+- 
+
+## Edit Recipe Page
+
+-
 
 ## Future Features
 
@@ -62,7 +72,7 @@ There are alot of features that could be added in the future. Some that I would 
 - Create a Search bar to make navigation faster towards a specific recipe.
 - To have a users page which shows all their information such as added recipes, most liked recipe and comments on      their recipes.  
 - A password reset for users who have forgotten their passwords.
-- A pop-up to easily covnert measurements.
+- A pop-up to easily convert measurements.
 - To have it it multiply languages so it can be used worldwide.
 
 # Database Design
@@ -202,15 +212,15 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 11. Under **deploy/ manual deploy** click **deploy branch**.
 12. Under **resources/ free dynos** click **edit** and **confirm**.
 
-## Credits
+# Credits
 
-### Content
+## Content
 
 - Some recipes were taken from [bbcgoodfood website](https://www.bbcgoodfood.com/)
 - Images from the carousel were taken from [pixabay](https://pixabay.com/)
 - Quotes are from [google](https://google.com/)
   
-### Code
+## Code
 
 - [Corey Schafer - Youtube Flask Series](https://www.youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH)
 - [Pretty Printed](https://www.youtube.com/results?search_query=pretty+printed+flask+login)
