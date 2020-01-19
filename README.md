@@ -1,6 +1,38 @@
 
 # [The Chefs Cookbook](https://the-chefs-diary.herokuapp.com/index)
 
+## Table of Contents
+
+1. [UX](#ux)
+    - [User Stories](#user-stories)
+    - [Design](#design)
+    - [Navigation](#navgation)
+  
+2. [Wireframes](#wireframe)
+
+3. [Features](#features)
+    - [Current Features](#current-features)
+    - [Future Features](#future-features)
+
+4. [Database Design](#database-design)
+
+5. [Technologies Used](#technologies-used)
+    - [Languages](#languages)
+    - [Libraries](#libraries)
+    - [Tools](#tools)
+
+6. [Testing](#testing)
+
+7. [Deployment](#deployment)
+    - [Clone in Github](#clone-in-github)
+    - [MongoDB Atlas Database](#mongodb-atlas-database)
+    - [Heroku Deployment](#deploy-to-heroku)
+
+8. [Credits](#credits)
+    - [Content](#content)
+    - [Code](#code)
+    - [Acknowledgements](#acknowledgements)
+
 # UX
 
 The Chefs Cookbook is a website created to help people like me to keep all their recipes in one place and also maybe find some new ones shared by others. I lived with chefs for many years and most of my recipes were written on pieces of paper or on the  back of envelopes and have disapeared over time. So after loosing so many recipes, I decided enough was enough and created the chefs cookbook for my chef friends to share all thier recipes with me again.
@@ -25,24 +57,23 @@ I'm heading into town and dont have any battery left in my phone. I want to prin
 
 ## Design
 
-
+-
 
 ### Navigation
 
-
-
-### Colours & Fonts
-
-
+-
 
 # Wireframe
 
 I decided to use balsamiq to create my mock-ups because it is easy to use and gave me a real visual of what I wanted to implement. These can be found [here]() 
 
-# Pages
+# Features
+
+## Current Features
 
 ## Home Page
 
+- Any user that arrives at the home page can view recipes by category. If they have an account they can log in on by   the link in the navbar. If they don't have an account they have the option to register. Once the user logs in the    navbar will change and have the options to view recipes, add recipes and logout.
 
 ## Register New Account Page
 
@@ -52,17 +83,21 @@ I decided to use balsamiq to create my mock-ups because it is easy to use and ga
 
 - Users can easily log into their accounts by providing their username and password. The password will be cross        checked with the password in the database. If the username or password are incorrect a message will flash saying     "Username of password are incorrect". When the user enters in their username and password correctly they are         redirected to the home page and a message flashes saying "You're Logged in."
   
+## Create Recipe Page
+
+- If a user is signed up and logged in they can add a recipe to the database. The add recipe page is a form with       each section being mandatory. If a user misses a a part they will be reminded when the click the add button. For     the ingredients and method section they can add and remove lines as its one instruction per line. For the category   and difficulty sections it is a dropdown to choose from. Once all fields are filled they can add the recipe.
+
 ## View Recipes Page
 
 - All recipes are displayed on the recipes page. Each recipe displays a little bit of information about the recipe.    If a user wants to see more they can click on the image and will be redirected to that recipes page. If a user       wants to see a specific category they can click on the recipes tab on the navbar and select the specific category.
 
-## Add Recipe Page
+## Update/Edit Recipe Page
 
-- 
+- A user has the option to update their own recipes. They must be logged in to view this option att the bottom of      their recipe. If they want to update their recipe it will bring them to update recipe page where they can add or     remove what they need.  
 
-## Edit Recipe Page
+## Delete Recipe
 
--
+- Users can only delete their own recipes. The user must be logged in to have this option. When the user is logged in and the usernames match the delete option becomes available. The delete button when click will activate a pop-up to confirm that the user really wants to delete the recipe. If they are sure the can click delete, if pressed by mistake they can close the pop-up and continue what they were doing.
 
 ## Future Features
 
@@ -119,7 +154,7 @@ Please find below the structure I used for my database using MongoDB.
 }
 ```
 
-# Technologies & Programmes Used
+# Technologies Used
 
 ## Languages
 
@@ -181,7 +216,7 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 6. Type **git clone** and paste the URL copied earlier.
 7. Press **enter**.
 
-## Create MongoDB Atlas Database
+## MongoDB Atlas Database
 
 1. On the [MongoDB](https://cloud.mongodb.com/user#/atlas/login) website log into your Atlas account.
 2. Under **cluster/ collections** click **create database** and enter a **database name** and **collection name**.
@@ -190,12 +225,6 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 5. Click **connect your application**.
 6. Select **Python** as the **driver** and select the **version**.
 7. Copy the connection string `mongodb+srv://root:<password>@myfirstcluster-fgb6v.azure.mongodb.net/test?retryWrites=true&w=majority`.
-
-## IDE Development Setup
-
-1. Add the `MONGO_URI` to your environment file for local deployment. Replace `<password>` with your **password** and `test` with your **database name**.
-2. Add a `SECRET_KEY` to your environment file.
-3. Use `pip install -r requirements.txt` to install requirements.
 
 ## Deploy to Heroku
 
