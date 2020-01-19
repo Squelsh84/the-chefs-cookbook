@@ -142,7 +142,8 @@
       <label for="recipe_author">
         <h4>Recipe Author</h4>
       </label>
-      <input id="recipe_author" name="recipe_author" type="text" required="required" class="form-control">
+      <input value="{{ session['username'] }}" id="recipe_author" name="recipe_author" type="text" required="required"
+        class="form-control">
     </div>
 
     <!-- Add Recipe Button -->
