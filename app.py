@@ -179,7 +179,7 @@ def insert_recipe():
 
 
 # Edit and Update Recipe
-@app.route('/edit_recipe/<recipe_id>', methods=['GET'])
+@app.route('/edit_recipe/<recipe_id>', methods=['GET','POST'])
 def edit_recipe(recipe_id):
 # Get the recipe that matches the recipe id 
     recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
