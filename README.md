@@ -72,7 +72,7 @@ I'm heading into town and dont have any battery left in my phone. I want to prin
 
 # Wireframe
 
-I decided to use balsamiq to create my mock-ups because it is easy to use and gave me a real visual of what I wanted to implement. These can be found [here]() 
+I decided to use balsamiq to create my mock-ups because it is easy to use and gave me a real visual of what I wanted to implement. These can be found [here](https://github.com/Squelsh84/the-cookbook/tree/master/wireframes). 
 
 # Features
 
@@ -121,7 +121,7 @@ There are alot of features that could be added in the future. Some that I would 
 
 Please find below the structure I used for my database using MongoDB.
 
-**Collection name:** `users`
+--Collection name:-- `users`
 
 ```{
     "_id": <ObjectId>,
@@ -131,7 +131,7 @@ Please find below the structure I used for my database using MongoDB.
 }
 ```
 
-**Collection name:** `categories`
+--Collection name:-- `categories`
 
 ```{
     "_id": <ObjectId>,
@@ -139,7 +139,7 @@ Please find below the structure I used for my database using MongoDB.
 }
 ```
 
-**Collection name:** `difficulty`
+--Collection name:-- `difficulty`
 
 ```{
     "_id": <ObjectId>,
@@ -147,7 +147,7 @@ Please find below the structure I used for my database using MongoDB.
 }
 ```
 
-**Collection name:** `recipes`
+--Collection name:-- `recipes`
 
 ```{
     "_id": <ObjectId>,
@@ -198,6 +198,10 @@ Please find below the structure I used for my database using MongoDB.
 
 
 
+- Used [W3c validator](https://validator.w3.org/) to validate both HTML and CSS. I copied my code and pasted it into the validator to check for errors and warnings.
+
+- [JSHint](https://jshint.com/) was used to validate JavaScript.
+
 # Deployment
 
 The website was developed in Visual Studio Code using a virtual environment and deployed to Heroku via GitHub.
@@ -217,37 +221,37 @@ The following instructions to clone and deploy assume the user has:
 The following instructions were taken from [GitHib Help]( https://help.github.com/en/articles/cloning-a-repository).
 
 1. Open the [The Chefs Cookbook](https://github.com/Squelsh84/the-cookbook) repository.
-2. Click the **clone or download** button.
-3. In the **clone with HTTPs** pop-up, click the **copy icon**.
-4. Open **git bash**.
+2. Click the --clone or download-- button.
+3. In the --clone with HTTPs-- pop-up, click the --copy icon--.
+4. Open --git bash--.
 5. Change the current working directory to where you want the cloned directory to be made.
-6. Type **git clone** and paste the URL copied earlier.
-7. Press **enter**.
+6. Type --git clone-- and paste the URL copied earlier.
+7. Press --enter--.
 
 ## MongoDB Atlas Database
 
 1. On the [MongoDB](https://cloud.mongodb.com/user#/atlas/login) website log into your Atlas account.
-2. Under **cluster/ collections** click **create database** and enter a **database name** and **collection name**.
-3. Click **create collection** to add more collections as per the database design above.
-4. Under **cluster/ overview** click **connect**.
-5. Click **connect your application**.
-6. Select **Python** as the **driver** and select the **version**.
+2. Under --cluster/ collections-- click --create database-- and enter a --database name-- and --collection name--.
+3. Click --create collection-- to add more collections as per the database design above.
+4. Under --cluster/ overview-- click --connect--.
+5. Click --connect your application--.
+6. Select --Python-- as the --driver-- and select the --version--.
 7. Copy the connection string `mongodb+srv://root:<password>@myfirstcluster-fgb6v.azure.mongodb.net/test?retryWrites=true&w=majority`.
 
 ## Deploy to Heroku
 
 1. On the [Heroku](https://id.heroku.com/login) website log into your account.
-2. Click **new** and **create new app**.
-3. Give your app a **name** (it must be unique), select a **region** and click **create app**.
-4. Under **deployment method** click **GitHub**.
-5. Under **connect to GitHub** select your **repository**, enter the **repo-name** and click **search**.
-6. Click the **connect** button that appears under your repository and repo-name.
-7. Under **settings/ config vars** click **reveal vars**.
-8. Enter **IP** for key, **0.0.0.0** for value and click **add**.
-9. Enter **MONGO_URI** for key, **your uri** for value and click **add**.
-10. Enter **SECRET_KEY** for key, **your secret key** for value and click **add**.
-11. Under **deploy/ manual deploy** click **deploy branch**.
-12. Under **resources/ free dynos** click **edit** and **confirm**.
+2. Click --new-- and --create new app--.
+3. Give your app a --name-- (it must be unique), select a --region-- and click --create app--.
+4. Under --deployment method-- click --GitHub--.
+5. Under --connect to GitHub-- select your --repository--, enter the --repo-name-- and click --search--.
+6. Click the --connect-- button that appears under your repository and repo-name.
+7. Under --settings/ config vars-- click --reveal vars--.
+8. Enter --IP-- for key, --0.0.0.0-- for value and click --add--.
+9. Enter --MONGO_URI-- for key, --your uri-- for value and click --add--.
+10. Enter --SECRET_KEY-- for key, --your secret key-- for value and click --add--.
+11. Under --deploy/ manual deploy-- click --deploy branch--.
+12. Under --resources/ free dynos-- click --edit-- and --confirm--.
 
 # Credits
 
@@ -267,4 +271,4 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 
 ## Acknowledgements
 
-- Another big thank you to my mentor Seun Owonikoko who guided me through another projectand to all the great people on Slack who take give their time to answer peoples questions. Many problems I have encountered have already been answered there.
+- Another big thank you to my mentor Seun Owonikoko who guided me through another project and also a special thank you to Joke Heyndels who saved me on the last day by helping me greatly with my project.  to all the great people on Slack who take give their time to answer peoples questions.Many problems I have encountered have already been answered there.
