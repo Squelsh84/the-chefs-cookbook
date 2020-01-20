@@ -9,7 +9,7 @@
 
 
 <div class="container container-add">
-  <form action="{{ url_for('update_recipe', recipe_id=recipe_id) }}" method="POST">
+  <form action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" method="POST">
 
     <!-- Recipe Name -->
     <div class="form-group">
@@ -162,7 +162,7 @@
     <!-- Update Recipe Button -->
     <div class="form-group text-center">
       <button class="btn btn-primary btn-cancel btn-recipe" type="reset" onclick="history.go(-1)">Cancel</button>
-      <button name="submit" type="submit" class="btn btn-success btn-recipe">Update Recipe</button>
+      <button type="submit" class="btn btn-success btn-recipe">Update Recipe</button>
 
     </div>
 
