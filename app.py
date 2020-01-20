@@ -83,56 +83,56 @@ def get_starter():
     return render_template('recipes.html', 
                            title='Starters', 
                            recipes=mongo.db.recipes.
-                           find({'recipe_category': 'Starter'}))
+                           find({'recipe_cat': 'Starter'}))
 
 
 @app.route('/get_main', methods=['GET'])
 def get_main():
     return render_template('recipes.html', title='Main Courses',
                             recipes=mongo.db.recipes.
-                            find({'recipe_category': 'Main Course'}))
+                            find({'recipe_cat': 'Main Course'}))
 
 
 @app.route('/get_dessert', methods=['GET'])
 def get_dessert():
     return render_template('recipes.html', title='Desserts',
                             recipes=mongo.db.recipes.find
-                            ({'recipe_category': 'Dessert'}))
+                            ({'recipe_cat': 'Dessert'}))
 
 
 @app.route('/get_lunch', methods=['GET'])
 def get_lunch():
     return render_template('recipes.html', title='Lunch',
                             recipes=mongo.db.recipes.find
-                            ({'recipe_category': 'Lunch'}))
+                            ({'recipe_cat': 'Lunch'}))
 
 
 @app.route('/get_breakfast', methods=['GET'])
 def get_breakfast():
     return render_template('recipes.html', title='Breakfast',
                             recipes=mongo.db.recipes.find
-                            ({'recipe_category': 'Breakfast'}))
+                            ({'recipe_cat': 'Breakfast'}))
 
 
 @app.route('/get_slowcooker', methods=['GET'])
 def get_slowcooker():
     return render_template('recipes.html', title='Slow Cooker',
                             recipes=mongo.db.recipes.find
-                            ({'recipe_category': 'Slow Cooker'}))
+                            ({'recipe_cat': 'Slow Cooker'}))
 
 
 @app.route('/get_vegan', methods=['GET'])
 def get_vegan():
     return render_template('recipes.html', title='Vegan',
                             recipes=mongo.db.recipes.find
-                            ({'recipe_category': 'Vegan'}))
+                            ({'recipe_cat': 'Vegan'}))
 
 
 @app.route('/get_vegetarian', methods=['GET'])
 def get_vegetarian():
     return render_template('recipes.html', title='Vegetarian',
                             recipes=mongo.db.recipes.find
-                            ({'recipe_category': 'Vegetarian'}))
+                            ({'recipe_cat': 'Vegetarian'}))
 
 
 
@@ -140,7 +140,7 @@ def get_vegetarian():
 def get_drinks():
     return render_template('recipes.html', title='Drinks',
                             recipes=mongo.db.recipes.find
-                            ({'recipe_category': 'Drinks'}))
+                            ({'recipe_cat': 'Drinks'}))
 
 
 # View All Recipes
@@ -233,4 +233,4 @@ def delete_recipe(recipe_id):
 
 
 if __name__ == '__main__':
-    app.run(host=os.getenv('IP'), port=os.getenv('PORT'), debug=True)
+    app.run(host=os.getenv('IP'), port=os.getenv('PORT'), debug=False)
