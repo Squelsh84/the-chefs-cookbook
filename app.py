@@ -3,7 +3,6 @@ from flask import Flask, render_template, redirect, request, url_for, session, f
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 import bcrypt
-from datetime import datetime
 
 
 app = Flask(__name__)
@@ -160,10 +159,6 @@ def add_recipe():
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
 
-    if 'username' not in session:  
-        flash('Please login or create an account to add a recipe.')
-        return redirect(url_for('login'))
-
     recipes = mongo.db.recipes
     new_recipe = {
         'recipe_name': request.form.get('recipe_name'),
@@ -174,8 +169,8 @@ def insert_recipe():
         'recipe_image': request.form.get('recipe_image'),
         'recipe_ingredients': request.form.getlist('recipe_ingredients'),
         'recipe_method': request.form.getlist('recipe_method'),
-        'recipe_category': request.form.get('recipe_category'),
-        'recipe_difficulty': request.form.get('recipe_difficulty'),
+        'recipe_cat': request.form.get('recipe_cat'),
+        'recipe_dif': request.form.get('recipe_dif'),
         'recipe_author': request.form.get('recipe_author')
     }
     recipes.insert_one(new_recipe)
@@ -186,11 +181,7 @@ def insert_recipe():
 # Edit and Update Recipe
 @app.route('/edit_recipe/<recipe_id>', methods=['GET'])
 def edit_recipe(recipe_id):
-
-    if 'username' not in session:  
-        flash('Please login to edit.')
-        return redirect(url_for('login'))
-
+# Get the recipe that matches the recipe id 
     recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
     categories = mongo.db.categories.find()
     difficulty = mongo.db.difficulty.find()
@@ -203,25 +194,26 @@ def edit_recipe(recipe_id):
 
 
 # Update Recipe
-@app.route('/update_recipe/<recipe_id>', methods=[ 'POST'])
+@app.route('/update_recipe/<recipe_id>', methods=['POST'])
 def update_recipe(recipe_id):
     recipe = mongo.db.recipes
+# Access recipes collection and call the update function
     recipe.update({'_id': ObjectId(recipe_id)},
                   {
-                'recipe_name': request.form.get('recipe_name'),
-                'recipe_description': request.form.get('recipe_description'),
-                'recipe_prep': request.form.get('recipe_prep'),
-                'recipe_cook': request.form.get('recipe_cook'),
-                'recipe_serving': request.form.get('recipe_serving'),
-                'recipe_image': request.form.get('recipe_image'),
-                'recipe_ingredients': request.form.getlist('recipe_ingredients'),
-                'recipe_method': request.form.getlist('recipe_method'),
-                'recipe_category': request.form.get('recipe_category'),
-                'recipe_difficulty': request.form.get('recipe_difficulty'),
-                'recipe_author': request.form.get('recipe_author')
-                })
+                    'recipe_name': request.form.get('recipe_name'),
+                    'recipe_description': request.form.get('recipe_description'),
+                    'recipe_prep': request.form.get('recipe_prep'),
+                    'recipe_cook': request.form.get('recipe_cook'),
+                    'recipe_serving': request.form.get('recipe_serving'),
+                    'recipe_image': request.form.get('recipe_image'),
+                    'recipe_ingredients': request.form.getlist('recipe_ingredients'),
+                    'recipe_method': request.form.getlist('recipe_method'),
+                    'recipe_cat': request.form.get('recipe_cat'),
+                    'recipe_dif': request.form.get('recipe_dif'),
+                    'recipe_author': request.form.get('recipe_author')
+                    })
     flash('Your recipe has been updated')
-    return redirect(url_for('recipes', recipe_id=recipe_id))
+    return redirect(url_for('/viewrecipe/<recipe_id>', recipe_id=recipe_id))
 
 
 # Delete Recipe
@@ -230,7 +222,7 @@ def update_recipe(recipe_id):
 def delete_recipe(recipe_id):
     mongo.db.recipes.delete_one({'_id': ObjectId(recipe_id)})
     flash("This recipe has been deleted")
-    return redirect(url_for('recipes'))
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
