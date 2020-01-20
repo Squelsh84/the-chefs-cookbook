@@ -194,7 +194,7 @@ def edit_recipe(recipe_id):
 
 
 # Update Recipe
-@app.route('/update_recipe/<recipe_id>', methods=['POST'])
+@app.route('/update_recipe/<recipe_id>', methods=['GET','POST'])
 def update_recipe(recipe_id):
     recipe = mongo.db.recipes
 # Access recipes collection and call the update function
@@ -213,7 +213,7 @@ def update_recipe(recipe_id):
                     'recipe_author': request.form.get('recipe_author')
                     })
     flash('Your recipe has been updated')
-    return redirect(url_for('/viewrecipe/<recipe_id>', recipe_id=recipe_id))
+    return redirect(url_for('viewrecipe', recipe_id=recipe_id))
 
 
 # Delete Recipe

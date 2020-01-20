@@ -3,7 +3,7 @@
 
 body {
   font-family: 'Montserrat';
-  background-color: #d5d5d5;
+  background-color: #eeeaea;
 }
 
 h2 h3 h4 {
@@ -110,6 +110,7 @@ color: #a82d2d;
 
 
 
+
 /*--- Index ---*/
 
 .carousel-images {
@@ -140,6 +141,7 @@ color: #a82d2d;
 .view img {
   border-radius: 10%;
 }
+
 
 
 
@@ -188,9 +190,11 @@ i {
   background-image: url('../img/background.jpg');
 }
 
+
 .btn-recipes {
   margin-top: 2px;
   margin-bottom: 2px;
+  text-align: center;
 }
 .btn-recipe {
   margin-bottom: 4rem;
@@ -270,3 +274,11 @@ i {
     margin-bottom:0;
   }
 }
+
+@media (max-width:991px) {
+  .widget-about {
+    margin: 12px;
+  }
+}
+
+
