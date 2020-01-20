@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-add jumbotron-fluid">
   <div class="container">
     <h1 class="text-center">Edit Recipe</h1>
   </div>
@@ -14,7 +14,7 @@
     <!-- Recipe Name -->
     <div class="form-group">
       <label for="recipe_name">
-        <h4>Recipe Name</h4>
+        <b>Recipe Name</b>
       </label>
       <input value="{{ recipe.recipe_name }}" id="recipe_name" name="recipe_name" type="text"
         placeholder="Name your dish" required="required" class="form-control">
@@ -23,7 +23,7 @@
     <!-- Recipe Description -->
     <div class="form-group">
       <label for="recipe_description">
-        <h4>Short Description</h4>
+        <b>Short Description</b>
       </label>
       <input value="{{ recipe.recipe_description }}" id="recipe_description" name="recipe_description" type="text"
         placeholder="Sum up your recipe in a line" required="required" class="form-control">
@@ -32,7 +32,7 @@
     <!-- Preperation Time -->
     <div class="form-group">
       <label for="recipe_prep">
-        <h4>Preperation Time</h4>
+        <b>Preperation Time</b>
       </label>
       <input value="{{ recipe.recipe_prep }}" id="recipe_prep" name="recipe_prep" type="text"
         placeholder="Time taken to prepare" required="required" class="form-control">
@@ -41,7 +41,7 @@
     <!-- Cooking Time -->
     <div class="form-group">
       <label for="recipe_cook">
-        <h4>Cooking Time</h4>
+        <b>Cooking Time</b>
       </label>
       <input value="{{ recipe.recipe_cook }}" id="recipe_cook" name="recipe_cook" type="text"
         placeholder="Time taken to cook" required="required" class="form-control">
@@ -50,7 +50,7 @@
     <!-- Serving Size -->
     <div class="form-group">
       <label for="recipe_serving">
-        <h4>Serves</h4>
+        <b>Serves</b>
       </label>
       <input value="{{ recipe.recipe_serving }}" id="recipe_serving" name="recipe_serving" type="text"
         placeholder="Number of people it serves" required="required" class="form-control">
@@ -59,7 +59,7 @@
     <!-- Recipe Image -->
     <div class="form-group">
       <label for="recipe_image">
-        <h4>Recipe Image</h4>
+        <b>Recipe Image</b>
       </label>
       <input value="{{ recipe.recipe_image }}" id="recipe_image" name="recipe_image" type="text"
         placeholder="Add your URL here" required="required" class="form-control">
@@ -68,7 +68,7 @@
     <!-- Recipe Ingredients -->
     <div class="form-group">
       <label for="recipe_ingredients">
-        <h4>Recipe Ingredients</h4>
+        <b>Recipe Ingredients</b>
       </label>
       <div class="new-ingredient ingredient">
         {% for ingredient in recipe.recipe_ingredients %}
@@ -93,7 +93,7 @@
     <!-- Recipe Method -->
     <div class="form-group">
       <label for="recipe_method">
-        <h4>Recipe Instructions</h4>
+        <b>Recipe Instructions</b>
       </label>
       <div class="new-method method">
         {% for method in recipe.recipe_method %}
@@ -117,12 +117,12 @@
     <div class="form-group row">
       <div class="col-md-6">
         <label for="recipe_category">
-          <h4>Category</h4>
+          <b>Category</b>
         </label>
-        <select id="recipe_category" class="form-control">
+        <select id="recipe_category" name="recipe_cat" class="form-control">
           <option selected>Choose...</option>
           {% for cat in categories %}
-          {% if cat.category_name == recipe.recipe_category %}
+          {% if cat.recipe_category == recipe.recipe_cat %}
           <option value="{{cat.recipe_category}}">{{cat.recipe_category}}</option>
           {% else %}
           <option value="{{cat.recipe_category}}">{{cat.recipe_category}}</option>
@@ -135,12 +135,12 @@
       <!-- Recipe Difficulty -->
       <div class="col-md-6">
         <label for="recipe_difficulty">
-          <h4>Difficulty</h4>
+          <b>Difficulty</b>
         </label>
-        <select id="recipe_dificulty" class="form-control">
+        <select id="recipe_difficulty" name="recipe_dif" class="form-control">
           <option selected>Choose...</option>
           {% for dif in difficulty %}
-          {% if dif.difficulty_name == recipe.recipe_difficulty %}
+          {% if dif.recipe_difficulty == recipe.recipe_dif %}
           <option value="{{dif.recipe_difficulty}}">{{dif.recipe_difficulty}}</option>
           {% else %}
           <option value="{{dif.recipe_difficulty}}">{{dif.recipe_difficulty}}</option>
@@ -153,7 +153,7 @@
     <!-- Recipe Author -->
     <div class="form-group">
       <label for="recipe_author">
-        <h4>Recipe Author</h4>
+        <b>Recipe Author</b>
       </label>
       <input value="{{ recipe.recipe_author }}" id="recipe_author" name="recipe_author" type="text" required="required"
         class="form-control">
@@ -161,8 +161,12 @@
 
     <!-- Update Recipe Button -->
     <div class="form-group text-center">
+      <button class="btn btn-primary btn-cancel btn-recipe" type="reset" onclick="history.go(-1)">Cancel</button>
       <button name="submit" type="submit" class="btn btn-success btn-recipe">Update Recipe</button>
+
     </div>
+
+
   </form>
 </div>
 
