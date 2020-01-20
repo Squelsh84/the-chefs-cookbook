@@ -8,7 +8,7 @@
 
 
 <div class="container">
-  <div class="row text-center">
+  <div class="row text-center recipe-view">
     <div class="col-lg-12 ">
       <div class="view-recipe ">
         <div class="rpe-cat">{{ recipe.recipe_category }}</div>
@@ -45,13 +45,13 @@
     <div class="container">
       <div class="ingredients text-center">
         <div class="row">
+          <!-- Cooking Ingredients -->
           <div class="col-lg-5">
             <div class="card" style="margin:50px 0">
               <h3 class="item-title ">
                 <i class="fas fa-list-ul"></i> Ingredients
               </h3>
               <div>
-
                 <ul class="list-group list-group-flush">
                   {% for ingredient in recipe.recipe_ingredients %}
                   <li class="list-group-item">
@@ -60,7 +60,6 @@
                       <input type="checkbox" />
                       <span class="success"></span>
                     </label>
-
                   </li>
                   {% endfor %}
                 </ul>
@@ -68,7 +67,7 @@
             </div>
           </div>
 
-
+          <!-- Cooking Procedures -->
           <div class="col-lg-7">
             <div class="card" style="margin:50px 0">
               <h3 class="item-title text-center">
@@ -93,7 +92,7 @@
     </div>
 
     {% if recipe.recipe_author == session['username'] %}
-    <div class="row text-center">
+    <div class="row view-buttons">
       <a role="button" href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}"
         class="btn btn-warning btn-recipes">Edit</a>
       <!-- Button to Open the Modal -->
