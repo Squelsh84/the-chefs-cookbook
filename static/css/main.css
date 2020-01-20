@@ -3,6 +3,11 @@
 
 body {
   font-family: 'Montserrat';
+  background-color: #d5d5d5;
+}
+
+h2 h3 h4 {
+  font-weight: 700;
 }
 
 #navvar {
@@ -112,11 +117,13 @@ color: #a82d2d;
   
 }
 
+.item-figure img{
+  border-radius: 35%;
+}
+
 .widget-about figure.author-figure img {
   border-radius: 45%;
 }
-
-
 
 
 .register-container, .login-container {
@@ -130,7 +137,9 @@ color: #a82d2d;
 
 }
 
-
+.view img {
+  border-radius: 10%;
+}
 
 
 
@@ -176,7 +185,7 @@ i {
 }
 
 .jumbotron-add {
-  background-image: url('../img/bannerfood.jpg');
+  background-image: url('../img/background.jpg');
 }
 
 .btn-recipes {

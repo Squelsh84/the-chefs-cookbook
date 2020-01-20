@@ -221,7 +221,7 @@ def update_recipe(recipe_id):
                 'recipe_author': request.form.get('recipe_author')
                 })
     flash('Your recipe has been updated')
-    return redirect(url_for('viewrecipe', recipe_id=recipe_id))
+    return redirect(url_for('recipes', recipe_id=recipe_id))
 
 
 # Delete Recipe
