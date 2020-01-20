@@ -19,6 +19,7 @@
   {% else %}
   <title>The Chefs Cookbook</title>
   {% endif %}
+
 </head>
 
 <body>
@@ -102,7 +103,7 @@
 
 
   <!-- Display the flash message -->
-  <div class="container" style="min-height:100% width,80%">
+  <div class="container">
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     {% for message in messages %}
@@ -127,7 +128,7 @@
 
 
   <!-- Footer -->
-  <footer class="footer-bg-dark footer-dark fixed">
+  <footer class="footer-bg-dark footer-dark fixed" id="footer">
     <div class="container">
       <div class="row">
 
@@ -149,7 +150,7 @@
         </div>
         <div class="col item social">
           <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-          <a href="https://wwww.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
           <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
