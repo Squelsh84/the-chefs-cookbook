@@ -153,10 +153,13 @@ Please find below the structure I used for my database using MongoDB.
     "_id": <ObjectId>,
     "recipe_name": <String>,
     "recipe_description": <String>,
-    "recipe_time": <String>,
+    "recipe_prep": <String>,
+    "recipe_cook": <String>,
     "recipe_image": <String>,
     "Recipe_ingredients": <Array>,
     "Recipe_method": <Array>,
+    "recipe_cat": <String>,
+    "recipe_dif": <String>,
     "recipe_author": <String>,
 }
 ```
