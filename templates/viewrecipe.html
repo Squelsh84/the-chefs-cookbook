@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-add jumbotron-fluid">
   <div class="container">
     <h1 class="text-center">Recipe</h1>
   </div>
@@ -9,12 +9,12 @@
 
 <div class="container">
   <div class="row text-center">
-    <div class="col-lg-12">
+    <div class="col-lg-12 text-center">
       <div class="view-recipe text-center">
         <div class="rpe-cat">{{ recipe.recipe_category }}</div>
         <h2 class="rpe-name">{{ recipe.recipe_name }}</h2>
       </div>
-      <div class="row text-center">
+      <div class="row">
         <h6 class="rcp-auth "><i class="fas fa-user"></i> By <span>{{ recipe.recipe_author }}</span></a></h6>
       </div>
       <div class="row">
@@ -122,9 +122,10 @@
         </div>
       </div>
       {% if recipe.recipe_author == session['username'] %}
-      <a role="button" href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-warning ">Edit</a>
+      <a role="button" href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}"
+        class="btn btn-warning btn-recipe ">Edit</a>
       <!-- Button to Open the Modal -->
-      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
+      <button type="button" class="btn btn-danger btn-recipe" data-toggle="modal" data-target="#myModal">
         Delete
       </button>
 
