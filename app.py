@@ -179,7 +179,7 @@ def insert_recipe():
 
 
 # Edit and Update Recipe
-@app.route('/edit_recipe/<recipe_id>', methods=['GET','POST'])
+@app.route('/edit_recipe/<recipe_id>')
 def edit_recipe(recipe_id):
 # Get the recipe that matches the recipe id 
     recipe = mongo.db.recipes.find_one({'_id': ObjectId(recipe_id)})
@@ -194,11 +194,11 @@ def edit_recipe(recipe_id):
 
 
 # Update Recipe
-@app.route('/update_recipe/<recipe_id>', methods=['GET','POST'])
+@app.route('/edit_recipe/<recipe_id>', methods=['POST'])
 def update_recipe(recipe_id):
     recipe = mongo.db.recipes
 # Access recipes collection and call the update function
-    recipe.update({'_id': ObjectId(recipe_id)},
+    recipe.replace_one({'_id': ObjectId(recipe_id)},
                   {
                     'recipe_name': request.form.get('recipe_name'),
                     'recipe_description': request.form.get('recipe_description'),
@@ -213,7 +213,7 @@ def update_recipe(recipe_id):
                     'recipe_author': request.form.get('recipe_author')
                     })
     flash('Your recipe has been updated')
-    return redirect(url_for('viewrecipe', recipe_id=recipe_id))
+    return redirect(url_for('recipes', recipe_id=recipe_id))
 
 
 # Delete Recipe
