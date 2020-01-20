@@ -33,132 +33,103 @@
             <li class="list-group-item">
               <h6>DIFFICULTY</h6><i class="fas fa-mitten"></i> {{ recipe.recipe_difficulty }}
             </li>
-            <li class="list-group-item">
-              <h6>PRINT</h6><button onclick="myFunction()" class="btn stnsm"><i class="fas fa-print"></i></button>
-            </li>
           </ul>
-          <ul class="action-item">
-            <li><button onclick="myFunction()"><i class="fas fa-print"></i></button></li>
-
-            <div class="action-share-wrap">
-              <a data-toggle="dropdown" class="btn btn-info">
-                <i class="fa fa-share-alt fa-inverse"></i>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a data-original-title="Twitter" rel="tooltip" href="#" class="btn btn-twitter" data-placement="left">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </li>
-                <li>
-                  <a data-original-title="Facebook" rel="tooltip" href="#" class="btn btn-facebook"
-                    data-placement="left">
-                    <i class="fab fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li>
-                  <a data-original-title="LinkedIn" rel="tooltip" href="#" class="btn btn-linkedin"
-                    data-placement="left">
-                    <i class="fab fa-linkedin-in"></i>
-                  </a>
-                </li>
-                <li>
-                  <a data-original-title="Pinterest" rel="tooltip" class="btn btn-pinterest" data-placement="left">
-                    <i class="fab fa-pinterest-p"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="container">
-        <div class="ingredients">
           <div class="row">
-            <div class="col-lg-5">
-              <div class="card" style="margin:50px 0">
-                <h3 class="item-title text-center">
-                  <i class="fas fa-list-ul"></i> Ingredients
-                </h3>
-                <div>
-
-                  <ul class="list-group list-group-flush">
-                    {% for ingredient in recipe.recipe_ingredients %}
-                    <li class="list-group-item">
-                      {{ ingredient }}
-                      <label class="checkbox">
-                        <input type="checkbox" />
-                        <span class="success"></span>
-                      </label>
-
-                    </li>
-                    {% endfor %}
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="col-lg-7">
-              <div class="card" style="margin:50px 0">
-                <h3 class="item-title text-center">
-                  <i class="fas fa-list-ul"></i> Cooking Procedure
-                </h3>
-                <div>
-
-                  <ol class="list-group list-group-flush">
-                    {% for method in recipe.recipe_method %}
-                    <li class="list-group-item">
-                      {{ method }}
-
-
-                    </li>
-                    {% endfor %}
-                  </ol>
-                </div>
-              </div>
-            </div>
+            <ul class="action-item">
+              <li><button onclick="myFunction()" class='btn'><i class="fas fa-print">PRINT</i></button></li>
+            </ul>
           </div>
         </div>
+        </li>
+        </ul>
       </div>
-      {% if recipe.recipe_author == session['username'] %}
-      <a role="button" href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}"
-        class="btn btn-warning btn-recipe ">Edit</a>
-      <!-- Button to Open the Modal -->
-      <button type="button" class="btn btn-danger btn-recipe" data-toggle="modal" data-target="#myModal">
-        Delete
-      </button>
-
-      <!-- The Modal -->
-      <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-
-            <!-- Modal Header -->
-            <div class="modal-header ">
-              <h4 class="modal-title ">Caution</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-            <!-- Modal body -->
-            <div class="modal-body">
-              You are about to permanently delete your recipe. Press delete if you are sure.
-            </div>
-
-            <!-- Modal footer -->
-            <div class="modal-footer">
-              <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-              <a role="button" href="{{ url_for('delete_recipe', recipe_id=recipe._id)}}"
-                class="btn btn-danger ">Delete</a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      {% endif %}
     </div>
+    <div class="container">
+      <div class="ingredients">
+        <div class="row">
+          <div class="col-lg-5">
+            <div class="card" style="margin:50px 0">
+              <h3 class="item-title text-center">
+                <i class="fas fa-list-ul"></i> Ingredients
+              </h3>
+              <div>
+
+                <ul class="list-group list-group-flush">
+                  {% for ingredient in recipe.recipe_ingredients %}
+                  <li class="list-group-item">
+                    {{ ingredient }}
+                    <label class="checkbox">
+                      <input type="checkbox" />
+                      <span class="success"></span>
+                    </label>
+
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-7">
+            <div class="card" style="margin:50px 0">
+              <h3 class="item-title text-center">
+                <i class="fas fa-list-ul"></i> Cooking Procedure
+              </h3>
+              <div>
+
+                <ol class="list-group list-group-flush">
+                  {% for method in recipe.recipe_method %}
+                  <li class="list-group-item">
+                    {{ method }}
+
+
+                  </li>
+                  {% endfor %}
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% if recipe.recipe_author == session['username'] %}
+    <a role="button" href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}"
+      class="btn btn-warning btn-recipe ">Edit</a>
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-danger btn-recipe" data-toggle="modal" data-target="#myModal">
+      Delete
+    </button>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header ">
+            <h4 class="modal-title ">Caution</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            You are about to permanently delete your recipe. Press delete if you are sure.
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+            <a role="button" href="{{ url_for('delete_recipe', recipe_id=recipe._id)}}"
+              class="btn btn-danger ">Delete</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    {% endif %}
   </div>
+</div>
 </div>
 
 
