@@ -10,8 +10,8 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['MONGO_DBNAME'] = os.getenv('MONGO_DBNAME')
 app.config['MONGO_URI'] = os.getenv('MONGO_URI')
 
-mongo = PyMongo(app)
 
+mongo = PyMongo(app)
 
 
 # Home
@@ -21,12 +21,10 @@ def index():
     return render_template('index.html', title='Home')
 
 
-
-
-"""
+'''
 User Login and Registeration taken from Pretty Printed youtube 
 video https://www.youtube.com/watch?v=vVx1737auSE
-"""
+'''
 
 # User Login
 @app.route('/login', methods=['POST', 'GET'])
@@ -45,7 +43,6 @@ def login():
     return render_template('login.html', title='Login')
 
 
-
 # User Register
 @app.route('/register', methods=['POST', 'GET'])
 def register():
@@ -58,6 +55,7 @@ def register():
                 request.form['pass'].encode('utf-8'), bcrypt.gensalt())
             users.insert_one({'username' :request.form['username'], 'password' : hash_password})
             session['username'] = request.form['username']
+
             flash('Lets get cooking!!')
             return redirect(url_for('index'))
 
@@ -66,9 +64,10 @@ def register():
     return render_template('register.html', title='Register')
 
 
-""" Users can logout off their account and session.pop will 
-    clear the session.
-"""
+'''
+Users can logout off their account and session.pop will 
+clear the session.
+'''
 # User Logout
 @app.route('/logout')
 def logout():
@@ -79,11 +78,6 @@ def logout():
 
 
 # Display Recipes by Category
-@app.route('/recipes<recipe_category>')
-def recipe_category():
-    return render_template('recipes.html', recipes=mongo.db.recipes.find.one({'recipe_category': recipe_category}))
-
-
 @app.route('/get_starter', methods=['GET'])
 def get_starter():
     return render_template('recipes.html', 
@@ -94,45 +88,59 @@ def get_starter():
 
 @app.route('/get_main', methods=['GET'])
 def get_main():
-    return render_template('recipes.html', title='Main Courses', recipes=mongo.db.recipes.find({'recipe_category': 'Main Course'}))
+    return render_template('recipes.html', title='Main Courses',
+                            recipes=mongo.db.recipes.
+                            find({'recipe_category': 'Main Course'}))
 
 
 @app.route('/get_dessert', methods=['GET'])
 def get_dessert():
-    return render_template('recipes.html', title='Desserts', recipes=mongo.db.recipes.find({'recipe_category': 'Dessert'}))
+    return render_template('recipes.html', title='Desserts',
+                            recipes=mongo.db.recipes.find
+                            ({'recipe_category': 'Dessert'}))
 
 
 @app.route('/get_lunch', methods=['GET'])
 def get_lunch():
-    return render_template('recipes.html', title='Lunch', recipes=mongo.db.recipes.find({'recipe_category': 'Lunch'}))
+    return render_template('recipes.html', title='Lunch',
+                            recipes=mongo.db.recipes.find
+                            ({'recipe_category': 'Lunch'}))
 
 
 @app.route('/get_breakfast', methods=['GET'])
 def get_breakfast():
-    return render_template('recipes.html', title='Breakfast', recipes=mongo.db.recipes.find({'recipe_category': 'Breakfast'}))
+    return render_template('recipes.html', title='Breakfast',
+                            recipes=mongo.db.recipes.find
+                            ({'recipe_category': 'Breakfast'}))
 
 
 @app.route('/get_slowcooker', methods=['GET'])
 def get_slowcooker():
-    return render_template('recipes.html', title='Slow Cooker', recipes=mongo.db.recipes.find({'recipe_category': 'Slow Cooker'}))
+    return render_template('recipes.html', title='Slow Cooker',
+                            recipes=mongo.db.recipes.find
+                            ({'recipe_category': 'Slow Cooker'}))
 
 
 @app.route('/get_vegan', methods=['GET'])
 def get_vegan():
-    return render_template('recipes.html', title='Vegan', recipes=mongo.db.recipes.find({'recipe_category': 'Vegan'}))
+    return render_template('recipes.html', title='Vegan',
+                            recipes=mongo.db.recipes.find
+                            ({'recipe_category': 'Vegan'}))
 
 
 @app.route('/get_vegetarian', methods=['GET'])
 def get_vegetarian():
-    return render_template('recipes.html', title='Vegetarian', recipes=mongo.db.recipes.find({'recipe_category': 'Vegetarian'}))
+    return render_template('recipes.html', title='Vegetarian',
+                            recipes=mongo.db.recipes.find
+                            ({'recipe_category': 'Vegetarian'}))
 
 
 
 @app.route('/get_drinks', methods=['GET'])
 def get_drinks():
-    return render_template('recipes.html', title='Drinks', recipes=mongo.db.recipes.find({'recipe_category': 'Derink'}))
-
-
+    return render_template('recipes.html', title='Drinks',
+                            recipes=mongo.db.recipes.find
+                            ({'recipe_category': 'Drinks'}))
 
 
 # View All Recipes
@@ -151,14 +159,14 @@ def recipes(recipe_id):
 # Add Recipe
 @app.route('/add_recipe')
 def add_recipe():
-    return render_template('addrecipe.html', title='Add Recipe', categories=mongo.db.categories.find(),
+    return render_template('addrecipe.html', title='Add Recipe',
+                           categories=mongo.db.categories.find(),
                            difficulty=mongo.db.difficulty.find())
 
 
 # Insert Recipe
 @app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
-
     recipes = mongo.db.recipes
     new_recipe = {
         'recipe_name': request.form.get('recipe_name'),
@@ -217,7 +225,6 @@ def update_recipe(recipe_id):
 
 
 # Delete Recipe
-
 @app.route('/delete_recipe<recipe_id>')
 def delete_recipe(recipe_id):
     mongo.db.recipes.delete_one({'_id': ObjectId(recipe_id)})
