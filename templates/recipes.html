@@ -19,7 +19,7 @@
           </a>
         </figure>
         <div class="recipe-content text-center">
-          <span class="category">{{recipe.recipe_category}}
+          <span class="category">{{recipe.recipe_cat}}
           </span>
           <h3 class="recipe-title ">
             <a href="{{ url_for('recipes', recipe_id=recipe._id) }}">{{recipe.recipe_name}}</a>
@@ -29,10 +29,10 @@
           </p>
           <ul class="info">
             <li>
-              <i class="fas fa-clock">{{recipe.recipe_cook}}</i>
+              <i class="fas fa-clock"> {{recipe.recipe_cook}}</i>
             </li>
             <li>
-              <i class="fas fa-user">{{recipe.recipe_author}}</i>
+              <i class="fas fa-user"> {{recipe.recipe_author}}</i>
             </li>
           </ul>
         </div>
