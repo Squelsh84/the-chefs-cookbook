@@ -23,6 +23,10 @@
     - [Tools](#tools)
 
 6. [Testing](#testing)
+    - [User Testing](#user-testing)
+    - [Testing on Browsers](#testing_on_browsers)
+    - [Manual Testing](#manual-testing)
+    - [Validators](#validators)
 
 7. [Deployment](#deployment)
     - [Clone in Github](#clone-in-github)
@@ -60,19 +64,15 @@ I'm heading into town and dont have any battery left in my phone. I want to prin
 
 ### Theme
 
-- The idea for the theme was to keep it simple and not over crowded with information. I wanted to keep it simple for  ease of navigation.
-
-### Color Scheme
-
--
+- The idea for the theme was to keep it simple and not over crowded with information. I wanted to keep it simple for  ease of navigation. Some ideas came from this [website](https://preview.themeforest.net/item/ranna-food-recipe-blog-bootstrap-4-template/full_screen_preview/23245048?_ga=2.101376133.508568564.1577723273-1672125964.1570478969)
 
 ### Typography
 
-- I have kept the font to just one. I went with a very easy and readible font Montserrat, which is always a popular     font and it's easy to see why.
+- I have kept the font to just one. I went with a very easy and readible font Montserrat, which is always a popular    font and it's easy to see why.
 
 # Wireframe
 
-I decided to use balsamiq to create my mock-ups because it is easy to use and gave me a real visual of what I wanted to implement. These can be found [here](https://github.com/Squelsh84/the-cookbook/tree/master/wireframes). 
+- I decided to use balsamiq to create my mock-ups because it is easy to use and gave me a real visual of what I        wanted to implement. These can be found [here](https://github.com/Squelsh84/the-cookbook/tree/master/wireframes).
 
 # Features
 
@@ -196,11 +196,57 @@ Please find below the structure I used for my database using MongoDB.
 
 # Testing
 
+## User Testing
 
+- The website was shared with friends and family to test. When testing there were some issues with design. The block   of information of difficulty and prep time was sitting to the left. To fix this i added a media query to             justify-content: center;. Apart from this there were no major issues reported back.
 
-- Used [W3c validator](https://validator.w3.org/) to validate both HTML and CSS. I copied my code and pasted it into the validator to check for errors and warnings.
+## Testing on Browsers
+
+- As I don't have every type of screen size and ocomputer on hand I used browserstack to help test across multiply     browsers. While I have google chrome and internet explorer available to me I used their developmet tools to help     with adjusting css and also to see if I had any errors in the console.
+
+## Manual Testing
+
+### Landing Page
+
+- Each button and link was test on the landing page. Social media icons were tested to ensure the opened in a new      tab. The page was also tested to see if unregistered user had access to the add recipe tab.
+
+### Register an Account
+
+- To test the register account I created various test accounts. After creating a new account I would try to recreate   an account using  the same username. When doing this it would flash a message saying it was already used.
+
+### Login User
+
+- After creating test accounts I logged out and tried to log back in again. When first creating this I ran into        issues with the hashing of the password. I tried using Flask-bycrpt to begin but after not being able to get it to   function I went with Bycrpt. Also only after logining in is the add recipe tab displayed.
+
+### Add Recipe
+
+- I ran into some issues at the begining when trying to get the recipe to add more than one ingredient. Instead of     saving it as an array it would save it as a string. To get arround this I created and add and remove button fo       each ingredient and cooking step.
+
+### Read Recipe
+
+- Each recipe that is added can be seen on the recipe page. When clicked on you can view the recipe. To the            ingredients section I added a checkbox to mark what ingredients you have. An issue I had with this is that when      the page is refreshed the boxs are reset. I could not fix this issue after many tries and hope to fix it in the      future.
+
+### Edit Recipe
+
+- The biggest challenge for me was the edit recipe page. After testing the page I found out I was getting the recipe   but when posted to update it wasn't finding the recipe. After two days of trying to get this to work and with some   help I discover that I had the id wrong in the form and that I was url_for the wrong address. This was the most      frustrating and biggest issue I had throughout this project.
+
+### Delete the Recipe
+
+- The edit and delete buttons are only available to the user who created the recipe. This is done by verifying the     username is in session. Once all these have been confirmed the recipe can be deleted. In the begining I noticed      that it was too easy to delete a recipe, so I added a modal to the delete recipe button. I created thi so the user   must really want to delete the recipe.
+
+### Print Recipe
+
+- An added Feature to the view recipe page is the print the recipe button. This was tested on multple platforms to     check funtionality and to see if it really printed. Also it helps to save the recipe as a pdf if unable to print.
+
+## Validators
+
+- [W3c validator](https://validator.w3.org/) to validate both HTML and CSS. I copied my code and pasted it into the validator to check for errors and warnings.
 
 - [JSHint](https://jshint.com/) was used to validate JavaScript.
+
+- [PEP8 Online](http://pep8online.com/) was used to check everything was right with code.
+
+- [BrowserStack](https://www.browserstack.com/) was used to test across multiple browsers.
 
 # Deployment
 
@@ -268,6 +314,8 @@ The following instructions were taken from [GitHib Help]( https://help.github.co
 - [MongoDB Documentation](https://docs.mongodb.com/)
 - [Stack Overflow](https://stackoverflow.com/)
 - [Flask Documentation](http://flask.palletsprojects.com/en/1.1.x/)
+- [Checkbox Ingredients](https://bootsnipp.com/snippets/j6xjx)
+- [Add Ingredients](https://stackoverflow.com/questions/9173182/add-remove-input-field-dynamically-with-jquery)
 
 ## Acknowledgements
 
