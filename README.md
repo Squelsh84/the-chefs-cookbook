@@ -1,6 +1,8 @@
 
 # [The Chefs Cookbook](https://the-chefs-diary.herokuapp.com/index)
 
+- Please find a link to the live website [here](https://the-chefs-diary.herokuapp.com/index)
+
 ![Responsive Dashboard](https://github.com/Squelsh84/the-cookbook/blob/master/static/img/website.png)
 
 ## Table of Contents
@@ -24,7 +26,7 @@
 
 6. [Testing](#testing)
     - [User Testing](#user-testing)
-    - [Testing on Browsers](#testing_on_browsers)
+    - [Testing on Browsers](#testing-on-browsers)
     - [Manual Testing](#manual-testing)
     - [Validators](#validators)
 
