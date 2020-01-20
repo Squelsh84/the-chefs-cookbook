@@ -1,6 +1,8 @@
 
 # [The Chefs Cookbook](https://the-chefs-diary.herokuapp.com/index)
 
+![Responsive Dashboard](https://github.com/Squelsh84/the-cookbook/blob/master/static/img/website.png)
+
 ## Table of Contents
 
 1. [UX](#ux)
