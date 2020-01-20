@@ -13,8 +13,6 @@
       <div class="view-recipe text-center">
         <div class="rpe-cat">{{ recipe.recipe_category }}</div>
         <h2 class="rpe-name">{{ recipe.recipe_name }}</h2>
-      </div>
-      <div class="row">
         <h6 class="rcp-auth "><i class="fas fa-user"></i> By <span>{{ recipe.recipe_author }}</span></a></h6>
       </div>
       <div class="row">
@@ -34,6 +32,9 @@
             </li>
             <li class="list-group-item">
               <h6>DIFFICULTY</h6><i class="fas fa-mitten"></i> {{ recipe.recipe_difficulty }}
+            </li>
+            <li class="list-group-item">
+              <h6>PRINT</h6><button onclick="myFunction()" class="btn stnsm"><i class="fas fa-print"></i></button>
             </li>
           </ul>
           <ul class="action-item">
