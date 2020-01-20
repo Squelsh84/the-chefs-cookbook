@@ -9,14 +9,14 @@
 
 <div class="container">
   <div class="row text-center">
-    <div class="col-lg-12 text-center">
-      <div class="view-recipe text-center">
+    <div class="col-lg-12 ">
+      <div class="view-recipe ">
         <div class="rpe-cat">{{ recipe.recipe_category }}</div>
         <h2 class="rpe-name">{{ recipe.recipe_name }}</h2>
-        <h6 class="rcp-auth "><i class="fas fa-user"></i> By <span>{{ recipe.recipe_author }}</span></a></h6>
+        <h6 class="rcp-auth "><i class="fas fa-user"></i> By <span>{{ recipe.recipe_author }}</span></h6>
       </div>
       <div class="row">
-        <div class="rcp-img text-center col-md-5">
+        <div class="rcp-img  col-md-5">
           <img src="{{ recipe.recipe_image }}" alt="food">
         </div>
         <div class="item-feature recipe-info">
@@ -31,25 +31,23 @@
               <h6>SERVES</h6><i class="fas fa-users"></i> {{ recipe.recipe_serving }} People
             </li>
             <li class="list-group-item">
-              <h6>DIFFICULTY</h6><i class="fas fa-mitten"></i> {{ recipe.recipe_difficulty }}
+              <h6>DIFFICULTY</h6><i class="fas fa-mitten"></i> {{ recipe.recipe_dif }}
             </li>
           </ul>
           <div class="row">
             <ul class="action-item">
-              <li><button onclick="myFunction()" class='btn'><i class="fas fa-print">PRINT</i></button></li>
+              <li><button onclick="myFunction()" class='btn btn-print'><i class="fas fa-print">PRINT</i></button></li>
             </ul>
           </div>
         </div>
-        </li>
-        </ul>
       </div>
     </div>
     <div class="container">
-      <div class="ingredients">
+      <div class="ingredients text-center">
         <div class="row">
           <div class="col-lg-5">
             <div class="card" style="margin:50px 0">
-              <h3 class="item-title text-center">
+              <h3 class="item-title ">
                 <i class="fas fa-list-ul"></i> Ingredients
               </h3>
               <div>
@@ -93,44 +91,48 @@
         </div>
       </div>
     </div>
+
     {% if recipe.recipe_author == session['username'] %}
-    <a role="button" href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}"
-      class="btn btn-warning btn-recipe ">Edit</a>
-    <!-- Button to Open the Modal -->
-    <button type="button" class="btn btn-danger btn-recipe" data-toggle="modal" data-target="#myModal">
-      Delete
-    </button>
+    <div class="row text-center">
+      <a role="button" href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}"
+        class="btn btn-warning btn-recipes">Edit</a>
+      <!-- Button to Open the Modal -->
+      <button type="button" class="btn btn-danger btn-recipes" data-toggle="modal" data-target="#myModal">
+        Delete
+      </button>
 
-    <!-- The Modal -->
-    <div class="modal fade" id="myModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
+      <!-- The Modal -->
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
 
-          <!-- Modal Header -->
-          <div class="modal-header ">
-            <h4 class="modal-title ">Caution</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <!-- Modal Header -->
+            <div class="modal-header ">
+              <h4 class="modal-title ">Caution</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              You are about to permanently delete your recipe. Press delete if you are sure.
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+              <a role="button" href="{{ url_for('delete_recipe', recipe_id=recipe._id)}}"
+                class="btn btn-danger ">Delete</a>
+            </div>
+
           </div>
-
-          <!-- Modal body -->
-          <div class="modal-body">
-            You are about to permanently delete your recipe. Press delete if you are sure.
-          </div>
-
-          <!-- Modal footer -->
-          <div class="modal-footer">
-            <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-            <a role="button" href="{{ url_for('delete_recipe', recipe_id=recipe._id)}}"
-              class="btn btn-danger ">Delete</a>
-          </div>
-
         </div>
       </div>
     </div>
+
     {% endif %}
   </div>
 </div>
-</div>
+
 
 
 
